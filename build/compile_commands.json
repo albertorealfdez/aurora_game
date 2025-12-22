@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/albertoua/Projects/UA/FV/aurora_game/build/src",
+  "command": "/usr/bin/g++  -I/home/albertoua/Projects/UA/FV/aurora_game/src/modules/game -I/home/albertoua/Projects/UA/FV/aurora_game/src/modules/states -g -o CMakeFiles/modulesLib.dir/modules/game/Game.cpp.o -c /home/albertoua/Projects/UA/FV/aurora_game/src/modules/game/Game.cpp",
+  "file": "/home/albertoua/Projects/UA/FV/aurora_game/src/modules/game/Game.cpp",
+  "output": "src/CMakeFiles/modulesLib.dir/modules/game/Game.cpp.o"
+},
+{
+  "directory": "/home/albertoua/Projects/UA/FV/aurora_game/build/src",
+  "command": "/usr/bin/g++  -I/home/albertoua/Projects/UA/FV/aurora_game/src/modules/game -I/home/albertoua/Projects/UA/FV/aurora_game/src/modules/states -g -o CMakeFiles/AuroraGame.dir/main.cpp.o -c /home/albertoua/Projects/UA/FV/aurora_game/src/main.cpp",
+  "file": "/home/albertoua/Projects/UA/FV/aurora_game/src/main.cpp",
+  "output": "src/CMakeFiles/AuroraGame.dir/main.cpp.o"
+}
+]

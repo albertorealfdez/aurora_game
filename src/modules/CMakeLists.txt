@@ -1,0 +1,9 @@
+target_sources(modulesLib PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/game/Game.cpp"
+)
+
+# Y donde se encuentran los .h
+target_include_directories(modulesLib PUBLIC 
+"${CMAKE_CURRENT_SOURCE_DIR}/game/"
+"${CMAKE_CURRENT_SOURCE_DIR}/states/"
+)
