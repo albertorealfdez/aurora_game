@@ -1,8 +1,0 @@
-/home/albertoua/Projects/UA/FV/aurora_game/build/CMakeFiles/edit_cache.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/CMakeFiles/rebuild_cache.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/CMakeFiles/AuroraGame.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/CMakeFiles/modulesLib.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/CMakeFiles/edit_cache.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/CMakeFiles/rebuild_cache.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/modules/CMakeFiles/edit_cache.dir
-/home/albertoua/Projects/UA/FV/aurora_game/build/src/modules/CMakeFiles/rebuild_cache.dir
