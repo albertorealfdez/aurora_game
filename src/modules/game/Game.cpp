@@ -17,5 +17,5 @@ Game* Game::getInstance()
 }
 
 void Game::run() {
-    
+    engine.run();
 }

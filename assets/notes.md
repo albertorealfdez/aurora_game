@@ -302,9 +302,55 @@ public:
 
 ```cpp
 class SFMLGraphicEngine : public IGraphicEngine {
-    sf::RenderWindow window;
-    sf::Font font;
+    public:
+    SFMLGraphicEngine(unsigned w, unsigned h, const std::string& title);
+
+    bool isOpen() const override;
+    void clear() override;
+    void display() override;
+
+    void drawText(const std::string& text,
+                  float x, float y,
+                  unsigned size) override;
+
+    private:
+        sf::RenderWindow window;
+        sf::Font font;
 };
+
+// cpp
+
+SFMLGraphicEngine::SFMLGraphicEngine(unsigned width,
+                                     unsigned height,
+                                     const std::string& title)
+: window(sf::VideoMode(width, height), title)
+{
+    if (!font.loadFromFile("assets/fonts/arial.ttf")) {
+        throw std::runtime_error("Error loading font");
+    }
+}
+
+bool SFMLGraphicEngine::isOpen() const
+{
+    return window.isOpen();
+}
+
+void SFMLGraphicEngine::clear()
+{
+    sf::Event event;
+    while (window.pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed)
+            window.close();
+    }
+
+    window.clear(sf::Color::Black);
+}
+
+void SFMLGraphicEngine::display()
+{
+    window.display();
+}
 ```
 
 📌 Fachada de **subsistema gráfico**

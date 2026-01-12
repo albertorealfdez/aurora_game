@@ -3,10 +3,12 @@
 
 #include "GraphicEngine.h"
 #include <SFML/Graphics.hpp>
+using namespace std;
 
 class SFMLGraphicEngine: public GraphicEngine {
     private:
         sf::RenderWindow window;
+        sf::Font font;
 
     public:
         SFMLGraphicEngine();
@@ -14,6 +16,8 @@ class SFMLGraphicEngine: public GraphicEngine {
         bool isOpen();
         void clear();
         void display();
+
+        void drawText(string& text, float x, float y, unsigned size);
 };
 
 #endif /* SFMLGRAPHICENGINE_H */

@@ -2,11 +2,12 @@
 #define ENGINE2D_H
 
 #include "GraphicEngine.h"
+#include "SFMLGraphicEngine.h"
 using namespace std;
 
 class Engine2D {
     private:
-        GraphicEngine graphics;
+        GraphicEngine *graphics;
     public:
         Engine2D(); 
         void run();
