@@ -16,6 +16,6 @@ Game* Game::getInstance()
     return instance;
 }
 
-bool Game::isRunning() {
-    return running;
+void Game::run() {
+    
 }

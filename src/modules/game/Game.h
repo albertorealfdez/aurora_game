@@ -13,7 +13,7 @@ class Game {
 
     public:
         static Game* getInstance();
-        bool isRunning();
+        void run();
 };
 
 #endif /* GAME_H */
