@@ -9,12 +9,14 @@ using namespace std;
 class Game {
     private:
         static Game *instance;
-        Engine2D engine;
+        Engine2D *engine2D;
         
-        bool running;
+        bool isRunning;
         Game();
 
     public:
+        ~Game();
+
         static Game* getInstance();
         void run();
 };

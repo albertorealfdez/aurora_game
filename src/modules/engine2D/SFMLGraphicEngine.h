@@ -7,11 +7,12 @@ using namespace std;
 
 class SFMLGraphicEngine: public GraphicEngine {
     private:
-        sf::RenderWindow window;
+        sf::RenderWindow *window;
         sf::Font font;
 
     public:
         SFMLGraphicEngine();
+        ~SFMLGraphicEngine();
 
         bool isOpen();
         void clear();

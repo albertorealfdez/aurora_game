@@ -4,17 +4,20 @@ Engine2D::Engine2D() {
     graphics = new SFMLGraphicEngine();
 }
 
-void Engine2D::run() {
-    while (graphics->isOpen())
-    {
-        //inputManager.update();
-
-        //state->handleInput(inputManager);
-        //state->update(0.016f);
-
-        graphics->clear();
-        //state->render(*graphics);
-        graphics->display();
-        
-    }
+Engine2D::~Engine2D() {
+    delete graphics;
 }
+
+bool Engine2D::isOpen() {
+    return graphics->isOpen();
+}
+
+void Engine2D::test() {
+    graphics->clear();
+    graphics->drawText("Hello", 100, 200, 32);
+    graphics->display();
+}
+/*
+bool pollEvent(Event& event) {
+    return 
+}*/

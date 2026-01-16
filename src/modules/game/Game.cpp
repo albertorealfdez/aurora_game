@@ -4,7 +4,12 @@ Game* Game::instance = 0;
 
 
 Game::Game() {
-    running = true;
+    engine2D = new Engine2D();
+    isRunning = true;
+}
+
+Game::~Game() {
+    delete engine2D;
 }
 
 Game* Game::getInstance()
@@ -17,5 +22,10 @@ Game* Game::getInstance()
 }
 
 void Game::run() {
-    engine.run();
+    while(isRunning) {
+        // handleInput()
+        // update()
+        // render
+        engine2D->test();
+    }
 }

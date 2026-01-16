@@ -3,14 +3,19 @@
 
 #include "GraphicEngine.h"
 #include "SFMLGraphicEngine.h"
+
 using namespace std;
 
 class Engine2D {
     private:
         GraphicEngine *graphics;
+
     public:
-        Engine2D(); 
-        void run();
+        Engine2D();
+        ~Engine2D();
+
+        bool isOpen();
+        void test();
 };
 
 #endif /* ENGINE2D_H */
