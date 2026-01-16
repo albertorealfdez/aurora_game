@@ -6,7 +6,6 @@ SFMLGraphicEngine::SFMLGraphicEngine()
     if (!font.loadFromFile("./assets/fonts/arial.ttf")) {
         throw std::runtime_error("Error loading font");
     }
-    cout<<"Initiating window in SFMLGraphicEngine"<<endl;
 }
 
 bool SFMLGraphicEngine::isOpen() {
@@ -28,7 +27,7 @@ void SFMLGraphicEngine::display() {
     window.display();
 }
 
-void SFMLGraphicEngine::drawText(string& text, float x, float y, unsigned size) {
+void SFMLGraphicEngine::drawText(const string& text, float x, float y, unsigned size) {
     sf::Text drawableText;
     drawableText.setFont(font);
     drawableText.setString(text);

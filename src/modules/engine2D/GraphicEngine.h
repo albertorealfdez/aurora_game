@@ -12,7 +12,7 @@ class GraphicEngine {
         virtual void clear() = 0;
         virtual void display() = 0;
 
-        virtual void drawText(string& text, float x, float y, unsigned size) = 0;
+        virtual void drawText(const string& text, float x, float y, unsigned size) = 0;
 };
 
 #endif /* GRAPHICENGINE_H */

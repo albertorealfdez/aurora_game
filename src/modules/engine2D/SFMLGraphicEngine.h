@@ -17,7 +17,7 @@ class SFMLGraphicEngine: public GraphicEngine {
         void clear();
         void display();
 
-        void drawText(string& text, float x, float y, unsigned size);
+        void drawText(const string& text, float x, float y, unsigned size);
 };
 
 #endif /* SFMLGRAPHICENGINE_H */
