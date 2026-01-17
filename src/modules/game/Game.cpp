@@ -26,10 +26,9 @@ Game* Game::getInstance()
 
 void Game::run() {
     while(isRunning) {
-        //handleInput()
-        // update()
-        // render
-        //engine2D->test();
+        stateManager->getCurrentState()->handleEvents();
+        stateManager->getCurrentState()->update();
+        stateManager->getCurrentState()->render(engine2D);
 
         if (!engine2D->isOpen()) {
             isRunning = false;
