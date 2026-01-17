@@ -1,11 +1,13 @@
 #include "Game.h"
+#include "IntroState.h"
 
 Game* Game::instance = 0;
 
 Game::Game() {
     engine2D = new Engine2D();
     stateManager = new StateManager();
-    
+    stateManager->pushState(new IntroState(this));
+
     isRunning = true;
 }
 
@@ -27,7 +29,11 @@ void Game::run() {
         //handleInput()
         // update()
         // render
-        engine2D->test();
+        //engine2D->test();
+
+        if (!engine2D->isOpen()) {
+            isRunning = false;
+        }
     }
 }
 

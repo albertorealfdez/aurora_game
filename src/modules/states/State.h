@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Engine2D.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ class State {
         virtual void init() = 0;
         virtual void handleEvents() = 0;
         virtual void update() = 0;
-        virtual void render() = 0;
+        virtual void render(Engine2D* engine2D) = 0;
 };
 
 #endif /* STATE_H */

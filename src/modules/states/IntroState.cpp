@@ -14,6 +14,6 @@ void IntroState::update() {
     
 }
 
-void IntroState::render() {
+void IntroState::render(Engine2D* engine2D) {
     
 }

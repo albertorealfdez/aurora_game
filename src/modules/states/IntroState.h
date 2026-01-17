@@ -11,7 +11,7 @@ class IntroState: public State {
         void init();
         void handleEvents();
         void update();
-        void render();
+        void render(Engine2D* engine2D);
 };
 
 #endif /* INTRO_STATE_H */
