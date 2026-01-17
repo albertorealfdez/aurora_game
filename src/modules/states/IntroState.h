@@ -5,7 +5,8 @@
 
 class IntroState: public State {
     public:
-        IntroState();
+        IntroState(Game* game);
+        ~IntroState() override = default;
 
         void init();
         void handleEvents();

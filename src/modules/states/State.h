@@ -6,8 +6,14 @@
 
 using namespace std;
 
+class Game;
+
 class State {
+    protected:
+        Game* game;
+
     public:
+        State(Game* game): game(game) {}
         virtual ~State() = default;
 
         virtual void init() = 0;

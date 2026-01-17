@@ -8,7 +8,7 @@ using namespace std;
 
 class Engine2D {
     private:
-        GraphicEngine *graphics;
+        GraphicEngine* graphics;
 
     public:
         Engine2D();

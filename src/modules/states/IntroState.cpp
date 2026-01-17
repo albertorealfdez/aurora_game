@@ -1,7 +1,9 @@
 #include "IntroState.h"
 
+IntroState::IntroState(Game* game): State(game) {}
+
 void IntroState::init() {
-    
+    cout<<"Initializing IntroState"<<endl;
 }
 
 void IntroState::handleEvents() {

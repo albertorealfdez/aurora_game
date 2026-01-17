@@ -2,6 +2,8 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/game/Game.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/Engine2D.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/SFMLGraphicEngine.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/states/StateManager.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/states/IntroState.cpp"
 )
 
 # Y donde se encuentran los .h

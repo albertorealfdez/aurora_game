@@ -3,9 +3,11 @@
 
 #include "State.h"
 
+using namespace std;
+
 class StateManager {
     private:
-        State* currentState;
+        vector<State*> states;
 
     public: 
         StateManager();
@@ -13,6 +15,7 @@ class StateManager {
 
         State* getCurrentState() const;
         void changeState(State* state);
+        void pushState(State* state);
 };
 
 #endif /* STATE_MANAGER_H */

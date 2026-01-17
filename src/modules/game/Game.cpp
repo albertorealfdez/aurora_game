@@ -2,9 +2,10 @@
 
 Game* Game::instance = 0;
 
-
 Game::Game() {
     engine2D = new Engine2D();
+    stateManager = new StateManager();
+    
     isRunning = true;
 }
 
@@ -23,9 +24,13 @@ Game* Game::getInstance()
 
 void Game::run() {
     while(isRunning) {
-        // handleInput()
+        //handleInput()
         // update()
         // render
         engine2D->test();
     }
+}
+
+void Game::quit() {
+    isRunning = false;
 }
