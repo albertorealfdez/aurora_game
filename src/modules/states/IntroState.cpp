@@ -1,4 +1,5 @@
 #include "IntroState.h"
+#include "Game.h"
 
 IntroState::IntroState(Game* game): State(game) {}
 
@@ -8,7 +9,7 @@ void IntroState::init() {
 
 void IntroState::handleInput(InputManager& input) {
     if (input.isKeyPressed(Key::Space)) {
-        cout<<"Space"<<endl;
+        game->getStateManager()->changeState(NULL);
     }
 }
 

@@ -17,7 +17,3 @@ void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
     graphics->drawText(text, x, y, size);
     graphics->display();
 }
-/*
-bool pollEvent(Event& event) {
-    return 
-}*/

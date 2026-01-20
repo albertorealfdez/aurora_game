@@ -15,6 +15,7 @@ class SFMLGraphicEngine: public GraphicEngine {
         ~SFMLGraphicEngine();
 
         bool isOpen();
+        bool pollEvent(sf::Event& event);
         void clear();
         void display();
 
