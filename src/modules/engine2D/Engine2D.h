@@ -15,7 +15,7 @@ class Engine2D {
         ~Engine2D();
 
         bool isOpen();
-        void test();
+        void drawText(const string& text, float x, float y, unsigned size)
 };
 
 #endif /* ENGINE2D_H */

@@ -27,7 +27,6 @@ void SFMLGraphicEngine::clear() {
         if (event.type == sf::Event::Closed)
             window->close();
     }
-
     window->clear(sf::Color::Black);
 }
 

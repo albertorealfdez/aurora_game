@@ -13,6 +13,7 @@ Game::Game() {
 
 Game::~Game() {
     delete engine2D;
+    delete stateManager;
 }
 
 Game* Game::getInstance()
@@ -25,10 +26,12 @@ Game* Game::getInstance()
 }
 
 void Game::run() {
-    while(isRunning) {
-        stateManager->getCurrentState()->handleEvents();
-        stateManager->getCurrentState()->update();
-        stateManager->getCurrentState()->render(engine2D);
+    while(isRunning && engine2D->isOpen()) {
+        State* currentState = stateManager->getCurrentState();
+
+        currentState->handleInput();
+        currentState->update();
+        currentState->render(engine2D);
 
         if (!engine2D->isOpen()) {
             isRunning = false;

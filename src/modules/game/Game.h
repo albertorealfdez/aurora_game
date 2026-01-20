@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Engine2D.h"
 #include "StateManager.h"
+#include "InputManager.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class Game {
         static Game* instance;
         Engine2D* engine2D;
         StateManager* stateManager;
+        InputManager inputManager;
         
         bool isRunning;
         Game();

@@ -18,7 +18,7 @@ class State {
         virtual ~State() = default;
 
         virtual void init() = 0;
-        virtual void handleEvents() = 0;
+        virtual void handleInput() = 0;
         virtual void update() = 0;
         virtual void render(Engine2D* engine2D) = 0;
 };

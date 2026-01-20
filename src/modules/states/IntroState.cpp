@@ -6,7 +6,7 @@ void IntroState::init() {
     cout<<"Initializing IntroState"<<endl;
 }
 
-void IntroState::handleEvents() {
+void IntroState::handleInput() {
     
 }
 
@@ -15,5 +15,5 @@ void IntroState::update() {
 }
 
 void IntroState::render(Engine2D* engine2D) {
-    
+    engine2D->drawText("Hello", 100, 200, 32);
 }

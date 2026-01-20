@@ -9,7 +9,7 @@ class IntroState: public State {
         ~IntroState() override = default;
 
         void init();
-        void handleEvents();
+        void handleInput();
         void update();
         void render(Engine2D* engine2D);
 };

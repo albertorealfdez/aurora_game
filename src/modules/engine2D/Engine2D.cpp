@@ -12,9 +12,9 @@ bool Engine2D::isOpen() {
     return graphics->isOpen();
 }
 
-void Engine2D::test() {
+void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
     graphics->clear();
-    graphics->drawText("Hello", 100, 200, 32);
+    graphics->drawText(text, x, y, size);
     graphics->display();
 }
 /*
