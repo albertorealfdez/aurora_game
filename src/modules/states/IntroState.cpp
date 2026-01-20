@@ -6,8 +6,10 @@ void IntroState::init() {
     cout<<"Initializing IntroState"<<endl;
 }
 
-void IntroState::handleInput() {
-    
+void IntroState::handleInput(InputManager& input) {
+    if (input.isKeyPressed(Key::Space)) {
+        cout<<"Space"<<endl;
+    }
 }
 
 void IntroState::update() {

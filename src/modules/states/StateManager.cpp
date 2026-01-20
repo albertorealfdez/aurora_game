@@ -20,7 +20,7 @@ State* StateManager::getCurrentState() const {
 }
 
 void StateManager::changeState(State* state) {
-    
+    cout<<"Changing state!"<<endl;
 }
 
 void StateManager::pushState(State* state) {

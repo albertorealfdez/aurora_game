@@ -24,6 +24,8 @@ class Game {
         static Game* getInstance();
         void run();
         void quit();
+
+        StateManager* getStateManager() { return stateManager; }
 };
 
 #endif /* GAME_H */

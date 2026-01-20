@@ -9,9 +9,9 @@ class IntroState: public State {
         ~IntroState() override = default;
 
         void init();
-        void handleInput();
+        void handleInput(InputManager& input) override;
         void update();
-        void render(Engine2D* engine2D);
+        void render(Engine2D* engine2D) override;
 };
 
 #endif /* INTRO_STATE_H */
