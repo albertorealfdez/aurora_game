@@ -15,6 +15,7 @@ class Engine2D {
         ~Engine2D();
 
         bool isOpen();
+        void pollEvent();
         void drawText(const string& text, float x, float y, unsigned size);
 };
 

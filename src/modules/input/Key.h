@@ -4,5 +4,6 @@ enum class Key {
     S,
     D,
     Space,
-    Escape
+    Escape,
+    Unknown
 };

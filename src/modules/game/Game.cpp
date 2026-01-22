@@ -28,6 +28,7 @@ Game* Game::getInstance()
 
 void Game::run() {
     while(isRunning && engine2D->isOpen()) {
+        //inputManager.pollEvents();
         State* currentState = stateManager->getCurrentState();
 
         currentState->handleInput(inputManager);

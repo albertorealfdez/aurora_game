@@ -14,10 +14,9 @@ class SFMLGraphicEngine: public GraphicEngine {
         SFMLGraphicEngine();
         ~SFMLGraphicEngine();
 
-        bool isOpen();
-        bool pollEvent(sf::Event& event);
-        void clear();
-        void display();
+        bool isOpen() override;
+        void clear() override;
+        void display() override;
 
         void drawText(const string& text, float x, float y, unsigned size);
 };

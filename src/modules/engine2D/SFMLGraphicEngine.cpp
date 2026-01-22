@@ -19,10 +19,10 @@ SFMLGraphicEngine::~SFMLGraphicEngine() {
 bool SFMLGraphicEngine::isOpen() {
     return window->isOpen();
 }
-
+/*
 bool SFMLGraphicEngine::pollEvent(sf::Event& event) {
     return window->pollEvent(event);
-}
+}*/
 
 
 void SFMLGraphicEngine::clear() {
