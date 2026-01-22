@@ -8,6 +8,10 @@ using namespace std;
 class StateManager {
     private:
         vector<State*> states;
+        
+        bool isChanging;
+        bool isPushing;
+        State* pendingState;
 
     public: 
         StateManager();
@@ -15,7 +19,9 @@ class StateManager {
 
         State* getCurrentState() const;
         void changeState(State* state);
+        void popState();
         void pushState(State* state);
+        void processPending();
 };
 
 #endif /* STATE_MANAGER_H */

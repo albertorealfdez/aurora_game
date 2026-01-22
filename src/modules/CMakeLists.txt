@@ -4,6 +4,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/SFMLGraphicEngine.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/states/StateManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/states/IntroState.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/states/PlayState.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/input/InputManager.cpp"    
 )
 

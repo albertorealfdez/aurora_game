@@ -10,7 +10,7 @@ class IntroState: public State {
 
         void init();
         void handleInput(InputManager& input) override;
-        void update();
+        void update() override;
         void render(Engine2D* engine2D) override;
 };
 

@@ -7,6 +7,7 @@ Game::Game() {
     engine2D = new Engine2D();
     stateManager = new StateManager();
     stateManager->pushState(new IntroState(this));
+    stateManager->processPending();
 
     isRunning = true;
 }
@@ -36,6 +37,7 @@ void Game::run() {
         if (!engine2D->isOpen()) {
             isRunning = false;
         }
+        stateManager->processPending();
     }
 }
 

@@ -20,11 +20,32 @@ State* StateManager::getCurrentState() const {
 }
 
 void StateManager::changeState(State* state) {
-    cout<<"Changing state!"<<endl;
+    isChanging = true;
+    isPushing = true;
+    pendingState = state;
+}
+
+void StateManager::popState() {
+    delete states.back();
+    states.pop_back();
 }
 
 void StateManager::pushState(State* state) {
-    states.push_back(state);
-    states.back()->init();
+    isPushing = true;
+    pendingState = state;
+}
+
+void StateManager::processPending() {
+    if (isChanging) {
+        popState();
+        isChanging = false;
+    }
+
+    if (isPushing) {
+        states.push_back(pendingState);
+        states.back()->init();
+        isPushing = false;
+        pendingState = nullptr;
+    }
 }
 
