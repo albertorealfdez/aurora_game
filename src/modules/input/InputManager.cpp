@@ -1,42 +1,26 @@
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Event.hpp>
+#include "Event.h"
 #include "InputManager.h"
 
-static Key fromSFMLKey(sf::Keyboard::Key sfKey) {
-    Key key;
-
-    switch (sfKey)
-    {
-        case sf::Keyboard::Space:
-            key = Key::Space;
-            break;
-        case sf::Keyboard::Escape:
-            key = Key::Escape;
-            break;
-        
-        default:
-            key = Key::Unknown;
-            break;
-    }
-    return key;
-}
-/*
-void InputManager::pollEvents(SFMLGraphicEngine& graphics) {
+void InputManager::pollEvents(GraphicEngine& graphics) {
     previousKeys = currentKeys;
 
-    sf::Event event;
-    while (graphics->pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
-            cout<<"Close!"<<endl;
+    Event event;
+    while (graphics.pollEvent(event)) {
+        if (event.type == EventType::Closed) {
+            quitRequested = true;
         }
-        else if (event.type == sf::Event::isKeyPressed) {
-            currentKeys[fromSFMLKey(event.key.code)] = true;
+        else if (event.type == EventType::KeyPressed) {
+            currentKeys[event.key] = true;
         }
-        else if (event.type == sf::Event::isKeyReleased) {
-            currentKeys[fromSFMLKey(event.key.code)] = false;
+        else if (event.type == EventType::KeyReleased) {
+            currentKeys[event.key] = false;
         }
     }
-}*/
+}
+
+bool InputManager::isQuitRequested() {
+    return quitRequested;
+}
 
 bool InputManager::isKeyDown(Key key) {
     return currentKeys[key];

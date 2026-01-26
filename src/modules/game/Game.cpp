@@ -9,7 +9,7 @@ Game::Game() {
     stateManager->pushState(new IntroState(this));
     stateManager->processPending();
 
-    isRunning = true;
+    running = true;
 }
 
 Game::~Game() {
@@ -27,21 +27,22 @@ Game* Game::getInstance()
 }
 
 void Game::run() {
-    while(isRunning && engine2D->isOpen()) {
-        //inputManager.pollEvents();
+    while(running && engine2D->isOpen()) {
         State* currentState = stateManager->getCurrentState();
+
+        inputManager.pollEvents(engine2D->getGraphicEngine());
 
         currentState->handleInput(inputManager);
         currentState->update();
         currentState->render(engine2D);
 
-        if (!engine2D->isOpen()) {
-            isRunning = false;
+        if (inputManager.isQuitRequested()) {
+            quit();
         }
         stateManager->processPending();
     }
 }
 
 void Game::quit() {
-    isRunning = false;
+    running = false;
 }

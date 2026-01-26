@@ -15,7 +15,7 @@ class Game {
         StateManager* stateManager;
         InputManager inputManager;
         
-        bool isRunning;
+        bool running;
         Game();
 
     public:

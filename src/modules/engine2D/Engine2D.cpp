@@ -8,12 +8,12 @@ Engine2D::~Engine2D() {
     delete graphics;
 }
 
-bool Engine2D::isOpen() {
-    return graphics->isOpen();
+GraphicEngine& Engine2D::getGraphicEngine() {
+    return *graphics;
 }
 
-void Engine2D::pollEvent() {
-    //return graphics->pollEvent();
+bool Engine2D::isOpen() {
+    return graphics->isOpen();
 }
 
 void Engine2D::drawText(const string& text, float x, float y, unsigned size) {

@@ -1,8 +1,9 @@
 #ifndef SFMLGRAPHICENGINE_H
 #define SFMLGRAPHICENGINE_H
 
-#include "GraphicEngine.h"
 #include <SFML/Graphics.hpp>
+#include "GraphicEngine.h"
+
 using namespace std;
 
 class SFMLGraphicEngine: public GraphicEngine {
@@ -15,6 +16,7 @@ class SFMLGraphicEngine: public GraphicEngine {
         ~SFMLGraphicEngine();
 
         bool isOpen() override;
+        bool pollEvent(Event& event) override;
         void clear() override;
         void display() override;
 

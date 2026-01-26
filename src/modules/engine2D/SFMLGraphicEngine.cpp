@@ -1,3 +1,5 @@
+#include <SFML/Window/Event.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include "SFMLGraphicEngine.h"
 
 SFMLGraphicEngine::SFMLGraphicEngine() {
@@ -16,13 +18,69 @@ SFMLGraphicEngine::~SFMLGraphicEngine() {
     delete window;
 }
 
+static Key fromSFMLKey(sf::Keyboard::Key sfKey) {
+    Key key;
+
+    switch (sfKey)
+    {
+        case sf::Keyboard::Escape:
+            key = Key::Escape;
+            break;
+
+        case sf::Keyboard::W:
+            key = Key::W;
+            break;
+        case sf::Keyboard::A:
+            key = Key::A;
+            break;
+        case sf::Keyboard::S:
+            key = Key::S;
+            break;
+        case sf::Keyboard::D:
+            key = Key::D;
+            break;
+        
+
+        case sf::Keyboard::Space:
+            key = Key::Space;
+            break;
+
+        default:
+            key = Key::Unknown;
+            break;
+    }
+    return key;
+}
+
 bool SFMLGraphicEngine::isOpen() {
     return window->isOpen();
 }
-/*
-bool SFMLGraphicEngine::pollEvent(sf::Event& event) {
-    return window->pollEvent(event);
-}*/
+
+bool SFMLGraphicEngine::pollEvent(Event& event) {
+    sf::Event sfEvent;
+
+    if (window->pollEvent(sfEvent)) {
+        switch(sfEvent.type) {
+            case sf::Event::Closed:
+                event.type = EventType::Closed;
+                break;
+            case sf::Event::KeyPressed:
+                event.type = EventType::KeyPressed;
+                event.key = fromSFMLKey(sfEvent.key.code);
+                break;
+            case sf::Event::KeyReleased:
+                event.type = EventType::KeyReleased;
+                event.key = fromSFMLKey(sfEvent.key.code);
+                break;
+            default:
+                event.type = EventType::None;
+                event.key = Key::Unknown;
+                break;
+        }
+        return true;
+    }
+    return false;
+}
 
 
 void SFMLGraphicEngine::clear() {
