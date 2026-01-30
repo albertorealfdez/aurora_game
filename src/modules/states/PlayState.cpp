@@ -3,14 +3,14 @@
 #include "Level1Scene.h"
 
 PlayState::PlayState(Game* game): State(game) {
+    player = new Player();
+    sceneManager = new SceneManager();
 }
 
 void PlayState::init() {
     cout<<"Initializing PlayState"<<endl;
-    player = new Player();
     player->init();
 
-    sceneManager = new SceneManager();
     sceneManager->changeScene(new Level1Scene(player));
     sceneManager->processPending();
 }

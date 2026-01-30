@@ -1,17 +1,17 @@
 #include "Player.h"
 
 Player::Player(): speed(100.0f) {
-    // Test
     position.set(200.f, 200.f);
 }
 
 void Player::init() {
-    mySprite.setTexture("assets/sprites/main-character.png");
+    mySprite.setTexture("assets/sprites/sprites.png");
     mySprite.setTextureRect(0, 0, 48, 48);
     mySprite.setScale(1.0f, 1.0f);
+    mySprite.setPosition(100, 200);
 }
 
-MySprite Player::getMySprite() {
+MySprite& Player::getMySprite() {
     return mySprite;
 }
 

@@ -17,6 +17,8 @@ class Engine2D {
         GraphicEngine& getGraphicEngine();
         bool isOpen();
         void pollEvent();
+        void beginFrame();
+        void endFrame();
         void drawText(const string& text, float x, float y, unsigned size);
         void drawSprite(const MySprite& mySprite);
 };

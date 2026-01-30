@@ -8,7 +8,7 @@ class Player: public Entity {
         Player();
 
         void init() override;
-        MySprite getMySprite() override;
+        MySprite& getMySprite() override;
 
         float getSpeed();
         void setSpeed(float speed);

@@ -16,14 +16,18 @@ bool Engine2D::isOpen() {
     return graphics->isOpen();
 }
 
-void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
+void Engine2D::beginFrame() {
     graphics->clear();
-    graphics->drawText(text, x, y, size);
+}
+
+void Engine2D::endFrame() {
     graphics->display();
 }
 
+void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
+    graphics->drawText(text, x, y, size);
+}
+
 void Engine2D::drawSprite(const MySprite& mySprite) {
-    graphics->clear();
     graphics->drawSprite(mySprite);
-    graphics->display();
 }

@@ -18,6 +18,5 @@ void Level1Scene::update() {
 }
 
 void Level1Scene::render(Engine2D* engine2D) {
-    engine2D->drawText("Game scene!", 100, 200, 32);     
     engine2D->drawSprite(player->getMySprite());
 }

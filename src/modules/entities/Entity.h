@@ -11,7 +11,7 @@ class Entity {
 
     public:
         virtual void init() = 0;
-        virtual MySprite getMySprite() = 0;
+        virtual MySprite& getMySprite() = 0;
 };
 
 #endif /* ENTITY_H */

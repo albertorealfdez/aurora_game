@@ -34,7 +34,10 @@ void Game::run() {
 
         currentState->handleInput(inputManager);
         currentState->update();
+
+        engine2D->beginFrame();
         currentState->render(engine2D);
+        engine2D->endFrame();
 
         if (inputManager.isQuitRequested()) {
             quit();

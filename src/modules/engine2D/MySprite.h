@@ -2,17 +2,14 @@
 #define MYSPRITE_H
 
 #include <string>
-using namespace std;
+#include <SFML/Graphics.hpp>
 
-namespace sf {
-    class Sprite;
-    class Texture;
-}
+using namespace std;
 
 class MySprite {
     private:
-        sf::Sprite* sprite;
-        sf::Texture* texture;
+        sf::Sprite sprite;
+        sf::Texture texture;
 
     public:
         MySprite();
