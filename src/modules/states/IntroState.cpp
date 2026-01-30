@@ -8,8 +8,8 @@ void IntroState::init() {
     cout<<"Initializing IntroState"<<endl;
 }
 
-void IntroState::handleInput(InputManager& input) {
-    if (input.isKeyPressed(Key::Space)) {
+void IntroState::handleInput(InputManager& inputManager) {
+    if (inputManager.isKeyPressed(Key::Space)) {
         game->getStateManager()->changeState(new PlayState(game));
     }
 }

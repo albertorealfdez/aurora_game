@@ -1,22 +1,25 @@
 #include "PlayState.h"
 #include "Game.h"
+#include "Level1Scene.h"
 
-PlayState::PlayState(Game* game): State(game) {}
+PlayState::PlayState(Game* game): State(game) {
+}
 
 void PlayState::init() {
     cout<<"Initializing PlayState"<<endl;
+    sceneManager = new SceneManager();
+    sceneManager->changeScene(new Level1Scene());
+    sceneManager->processPending();
 }
 
-void PlayState::handleInput(InputManager& input) {
-    /*if (input.isKeyPressed(Key::Space)) {
-        // game->getStateManager()->changeState(NULL);
-    }*/
+void PlayState::handleInput(InputManager& inputManager) {
+    sceneManager->getCurrentScene()->handleInput(inputManager);
 }
 
 void PlayState::update() {
-    
+    sceneManager->getCurrentScene()->update();
 }
 
 void PlayState::render(Engine2D* engine2D) {
-    engine2D->drawText("Game!", 100, 200, 32);
+    sceneManager->getCurrentScene()->render(engine2D);
 }

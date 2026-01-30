@@ -9,6 +9,8 @@ StateManager::~StateManager() {
         delete state;
     }
     states.clear();
+
+    delete pendingState;
 }
 
 State* StateManager::getCurrentState() const {

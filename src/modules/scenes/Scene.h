@@ -1,0 +1,17 @@
+#ifndef SCENE_H
+#define SCENE_H
+
+#include "InputManager.h"
+#include "Engine2D.h"
+
+class Scene {
+    public:
+        virtual ~Scene() = default;
+
+        virtual void init() = 0;
+        virtual void handleInput(InputManager& inputManager) = 0;
+        virtual void update() = 0;
+        virtual void render(Engine2D* engine2D) = 0;
+};
+
+#endif /* SCENE_H */
