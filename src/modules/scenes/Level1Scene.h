@@ -2,10 +2,13 @@
 #define LEVEL1_SCENE_H
 
 #include "Scene.h"
+#include "Player.h"
 
 class Level1Scene: public Scene{
+    private:
+        Player* player;
     public:
-        Level1Scene();
+        Level1Scene(Player* player);
         
         void init() override;
         void handleInput(InputManager& input) override;

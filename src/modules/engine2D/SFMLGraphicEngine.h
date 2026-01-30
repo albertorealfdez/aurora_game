@@ -20,7 +20,8 @@ class SFMLGraphicEngine: public GraphicEngine {
         void clear() override;
         void display() override;
 
-        void drawText(const string& text, float x, float y, unsigned size);
+        void drawText(const string& text, float x, float y, unsigned size) override;
+        void drawSprite(const MySprite& mySprite);
 };
 
 #endif /* SFMLGRAPHICENGINE_H */

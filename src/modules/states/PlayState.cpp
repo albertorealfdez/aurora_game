@@ -7,8 +7,11 @@ PlayState::PlayState(Game* game): State(game) {
 
 void PlayState::init() {
     cout<<"Initializing PlayState"<<endl;
+    player = new Player();
+    player->init();
+
     sceneManager = new SceneManager();
-    sceneManager->changeScene(new Level1Scene());
+    sceneManager->changeScene(new Level1Scene(player));
     sceneManager->processPending();
 }
 

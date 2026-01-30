@@ -1,6 +1,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include "SFMLGraphicEngine.h"
+#include "MySprite.h"
 
 SFMLGraphicEngine::SFMLGraphicEngine() {
     window = new sf::RenderWindow(sf::VideoMode(800, 600), "Aurora Game");
@@ -106,4 +107,8 @@ void SFMLGraphicEngine::drawText(const string& text, float x, float y, unsigned 
     drawableText.setPosition(x, y);
 
     window->draw(drawableText);
+}
+
+void SFMLGraphicEngine::drawSprite(const MySprite& mySprite) {
+    window->draw(mySprite.getSprite());
 }

@@ -3,10 +3,12 @@
 
 #include "State.h"
 #include "SceneManager.h"
+#include "Player.h"
 
 class PlayState: public State {
     private:
         SceneManager* sceneManager;
+        Player* player;
 
     public:
         PlayState(Game* game);
