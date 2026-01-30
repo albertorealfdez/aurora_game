@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player() {
+Player::Player(): speed(100.0f) {
     // Test
     position.set(200.f, 200.f);
 }
@@ -13,4 +13,12 @@ void Player::init() {
 
 MySprite Player::getMySprite() {
     return mySprite;
+}
+
+float Player::getSpeed() {
+    return speed;
+}
+
+void Player::setSpeed(float speed) {
+    this->speed = speed;
 }

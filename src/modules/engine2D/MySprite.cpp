@@ -1,3 +1,4 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "MySprite.h"
 
@@ -24,7 +25,12 @@ void MySprite::move(float dx, float dy) {
 }
 
 void MySprite::setTexture(const string& path) {
-    texture->loadFromFile(path);
+    
+    if (!texture->loadFromFile(path)) {
+        cout<< "Error cargando la imagen sprites.png"<<endl;
+    } else {
+        cout<<"Textura cargada"<<endl;
+    }
     sprite->setTexture(*texture);
 }
 

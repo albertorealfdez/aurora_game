@@ -110,5 +110,23 @@ void SFMLGraphicEngine::drawText(const string& text, float x, float y, unsigned 
 }
 
 void SFMLGraphicEngine::drawSprite(const MySprite& mySprite) {
-    window->draw(mySprite.getSprite());
+    //window->draw(mySprite.getSprite());
+    sf::Texture tex;
+    if (!tex.loadFromFile("assets/sprites/main-character.png")) {
+        std::cerr << "Error cargando la imagen sprites.png";
+        exit(0);
+    }
+
+    //Y creo el spritesheet a partir de la imagen anterior
+    sf::Sprite sprite(tex);
+
+    //Le pongo el centroide donde corresponde
+    sprite.setOrigin(75 / 2, 75 / 2);
+    //Cojo el sprite que me interesa por defecto del sheet
+    sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
+
+    // Lo dispongo en el centro de la pantalla
+    sprite.setPosition(320, 240);
+    window->draw(sprite);
+
 }

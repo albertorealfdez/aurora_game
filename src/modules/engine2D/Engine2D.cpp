@@ -23,5 +23,7 @@ void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
 }
 
 void Engine2D::drawSprite(const MySprite& mySprite) {
+    graphics->clear();
     graphics->drawSprite(mySprite);
+    graphics->display();
 }
