@@ -1,5 +1,5 @@
 #include "Level1Scene.h"
-#include <iostream>
+
 Level1Scene::Level1Scene(Player* player) {
     this->player = player;
 }
@@ -9,9 +9,7 @@ void Level1Scene::init() {
 }
 
 void Level1Scene::handleInput(InputManager& inputManager) {
-    if (inputManager.isKeyDown(Key::D)) {
-        player->setState(PlayerState::WalkRight);
-    }
+    player->handleInput(inputManager);
 }
 
 void Level1Scene::update() {

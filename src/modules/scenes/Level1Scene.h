@@ -11,7 +11,7 @@ class Level1Scene: public Scene{
         Level1Scene(Player* player);
         
         void init() override;
-        void handleInput(InputManager& input) override;
+        void handleInput(InputManager& inputManager) override;
         void update() override;
         void render(Engine2D* engine2D) override;
 };

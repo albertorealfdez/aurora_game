@@ -1,6 +1,6 @@
+#include <iostream>
 #include "Player.h"
 
-#include <iostream>
 Player::Player(): speed(0.05f) {
     x = 200.f;
     y = 100.f;
@@ -9,12 +9,12 @@ Player::Player(): speed(0.05f) {
 }
 
 void Player::init() {
-    mySprite.setTexture("assets/sprites/walk.png");
-    mySprite.setTextureRect(0, 0, 64, 64);
+    mySprite.setTexture("assets/sprites/warrior.png");
+    mySprite.setTextureRect(0, 0, 90, 90);
     mySprite.setScale(1.0f, 1.0f);
     mySprite.setPosition(x, y);
-    mySprite.setFrameHeight(64);
-    mySprite.setFrameWidth(64);
+    mySprite.setFrameHeight(90);
+    mySprite.setFrameWidth(90);
 
     animator = new Animator(mySprite);
 
@@ -26,11 +26,23 @@ void Player::init() {
     };
 
     animator->addAnimation("walkRight", walkRight);
-    cout<<"Init Player"<<endl;
 }
 
 MySprite& Player::getMySprite() {
     return mySprite;
+}
+
+void Player::handleInput(InputManager& inputManager) {
+    // Pressed key states
+    if (inputManager.isKeyPressed(Key::D)) {
+        setState(PlayerState::WalkRight);
+    }
+
+    // Released key states
+    if (inputManager.isKeyReleased(Key::D)) {
+        cout<<"Released"<<endl;
+        setState(PlayerState::Idle);
+    }
 }
 
 void Player::update() {
