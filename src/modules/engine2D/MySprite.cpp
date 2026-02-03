@@ -28,9 +28,13 @@ void MySprite::setTexture(const string& path) {
     if (!texture.loadFromFile(path)) {
         cout<< "Error cargando la imagen sprites.png"<<endl;
     } else {
-        cout<<"Textura cargada"<<endl;
+        cout<<"Texture loaded"<<endl;
     }
     sprite.setTexture(texture);
+}
+
+void MySprite::setFrame(int row, int col) {
+    setTextureRect(col * frameWidth, row * frameHeight, frameWidth, frameHeight);
 }
 
 void MySprite::setScale(float x, float y) {
@@ -39,4 +43,12 @@ void MySprite::setScale(float x, float y) {
 
 void MySprite::setTextureRect(int x, int y, int w, int h) {
     sprite.setTextureRect(sf::IntRect(x, y, w, h));
+}
+
+void MySprite::setFrameHeight(int height) {
+    frameHeight = height;
+}
+
+void MySprite::setFrameWidth(int width) {
+    frameWidth = width;
 }

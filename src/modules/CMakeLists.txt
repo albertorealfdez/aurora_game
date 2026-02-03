@@ -10,6 +10,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/scenes/SceneManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/scenes/Level1Scene.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/Player.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/animation/Animator.cpp"
 )
 
 # Y donde se encuentran los .h
@@ -20,4 +21,5 @@ target_include_directories(modulesLib PUBLIC
 "${CMAKE_CURRENT_SOURCE_DIR}/states/"
 "${CMAKE_CURRENT_SOURCE_DIR}/scenes/"
 "${CMAKE_CURRENT_SOURCE_DIR}/entities/"
+"${CMAKE_CURRENT_SOURCE_DIR}/animation/"
 )

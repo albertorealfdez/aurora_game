@@ -29,7 +29,7 @@ Game* Game::getInstance()
 void Game::run() {
     while(running && engine2D->isOpen()) {
         State* currentState = stateManager->getCurrentState();
-
+        
         inputManager.pollEvents(engine2D->getGraphicEngine());
 
         currentState->handleInput(inputManager);

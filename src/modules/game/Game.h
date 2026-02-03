@@ -1,12 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <iostream>
 #include "Engine2D.h"
 #include "StateManager.h"
 #include "InputManager.h"
-
-using namespace std;
 
 class Game {
     private:
