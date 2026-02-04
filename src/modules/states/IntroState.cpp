@@ -14,7 +14,7 @@ void IntroState::handleInput(InputManager& inputManager) {
     }
 }
 
-void IntroState::update() {
+void IntroState::update(float dt) {
     
 }
 

@@ -1,6 +1,5 @@
 #include "Event.h"
 #include "InputManager.h"
-#include <iostream>
 
 void InputManager::pollEvents(GraphicEngine& graphics) {
     previousKeys = currentKeys;

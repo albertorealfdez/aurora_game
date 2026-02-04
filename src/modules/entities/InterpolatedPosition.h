@@ -1,24 +1,29 @@
 struct Vector2 {
     float x;
     float y;
+
+    Vector2() =  default;
+    Vector2(float newX, float newY) {
+        x = newX;
+        y = newY;
+    }
 };
 
 class InterpolatedPosition {
-    private:
-        Vector2 position;
-        Vector2 lastPosition;
-
     public:
-        Vector2 getPostion() {
-            return position;
-        }
-
-        Vector2 getLastPosition() {
-            return lastPosition;
-        }
+        // TODO: move to private?
+        Vector2 current;
+        Vector2 last;
 
         void set(float x, float y) {
-            position.x = x;
-            position.y = y;
+            last = current;
+            current = Vector2(x, y);
+        }
+
+        Vector2  interpolate(float alpha) const {
+            float newX = last.x * (1.f - alpha) + current.x  * alpha;
+            float newY = last.y * (1.f - alpha) + current.y  * alpha;
+
+            return Vector2(newX, newY);
         }
 };

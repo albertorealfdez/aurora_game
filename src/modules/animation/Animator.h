@@ -14,6 +14,7 @@ class Animator {
         Animation* currentAnimation;
         int currentFrame;
         float timer;
+        bool playing;
 
         void applyFrame();
 
@@ -21,6 +22,7 @@ class Animator {
         Animator(MySprite& sprite);
         void addAnimation(string name, Animation animation);
         void play(string name);
+        void stop();
         void update();
 };
 

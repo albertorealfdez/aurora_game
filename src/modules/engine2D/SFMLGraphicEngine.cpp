@@ -29,7 +29,6 @@ static Key fromSFMLKey(sf::Keyboard::Key sfKey) {
         case sf::Keyboard::Escape:
             key = Key::Escape;
             break;
-
         case sf::Keyboard::W:
             key = Key::W;
             break;

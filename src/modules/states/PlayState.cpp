@@ -18,8 +18,8 @@ void PlayState::handleInput(InputManager& inputManager) {
     sceneManager->getCurrentScene()->handleInput(inputManager);
 }
 
-void PlayState::update() {
-    sceneManager->getCurrentScene()->update();
+void PlayState::update(float dt) {
+    sceneManager->getCurrentScene()->update(dt);
 }
 
 void PlayState::render(Engine2D* engine2D) {

@@ -10,6 +10,9 @@ Game::Game() {
     stateManager->processPending();
 
     running = true;
+    limitRender = true;
+    renderFPS = 60;
+    updateTime = 1.f/15.f;
 }
 
 Game::~Game() {
@@ -27,14 +30,25 @@ Game* Game::getInstance()
 }
 
 void Game::run() {
+    float elapsedTime = 0.f;
+    float percentTick = 0.f;
+
     while(running && engine2D->isOpen()) {
         State* currentState = stateManager->getCurrentState();
         
         inputManager.pollEvents(engine2D->getGraphicEngine());
-
         currentState->handleInput(inputManager);
-        currentState->update();
 
+        elapsedTime = clock.getElapsedTime();
+
+        if (elapsedTime >= updateTime) {
+            currentState->update(updateTime);
+            clock.restart();
+            elapsedTime = 0.f;
+        }
+
+        percentTick = min(1.f, elapsedTime / updateTime);
+        
         engine2D->beginFrame();
         currentState->render(engine2D);
         engine2D->endFrame();

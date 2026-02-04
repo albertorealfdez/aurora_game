@@ -19,7 +19,7 @@ class Player: public Entity {
         void init() override;
         MySprite& getMySprite() override;
         void handleInput(InputManager& inputManager) override;
-        void update() override;
+        void update(float dt) override;
 
         float getSpeed();
         void setSpeed(float speed);

@@ -16,7 +16,7 @@ class PlayState: public State {
 
         void init();
         void handleInput(InputManager& inputManager) override;
-        void update() override;
+        void update(float dt) override;
         void render(Engine2D* engine2D) override;
 };
 

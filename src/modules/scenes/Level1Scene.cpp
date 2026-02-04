@@ -12,8 +12,8 @@ void Level1Scene::handleInput(InputManager& inputManager) {
     player->handleInput(inputManager);
 }
 
-void Level1Scene::update() {
-    player->update();
+void Level1Scene::update(float dt) {
+    player->update(dt);
 }
 
 void Level1Scene::render(Engine2D* engine2D) {

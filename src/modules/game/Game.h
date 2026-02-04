@@ -4,6 +4,7 @@
 #include "Engine2D.h"
 #include "StateManager.h"
 #include "InputManager.h"
+#include "Clock.h"
 
 class Game {
     private:
@@ -11,7 +12,11 @@ class Game {
         Engine2D* engine2D;
         StateManager* stateManager;
         InputManager inputManager;
+        Clock clock;
         
+        bool limitRender;
+        int renderFPS;
+        float updateTime;
         bool running;
         Game();
 

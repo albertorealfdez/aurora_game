@@ -1,9 +1,9 @@
-#include <iostream>
 #include "Player.h"
 
-Player::Player(): speed(0.05f) {
+Player::Player() {
     x = 200.f;
     y = 100.f;
+    speed = 180.f;
 
     position.set(x, y);
 }
@@ -40,23 +40,29 @@ void Player::handleInput(InputManager& inputManager) {
 
     // Released key states
     if (inputManager.isKeyReleased(Key::D)) {
-        cout<<"Released"<<endl;
         setState(PlayerState::Idle);
     }
 }
 
-void Player::update() {
+void Player::update(float dt) {
+    position.last =  position.current;
+
     switch (state) {
         case PlayerState::WalkRight:
             animator->play("walkRight");
-            x += speed;
+            position.current.x += speed * dt;
+            break;
+
+        case PlayerState::Idle:
+            //animator->play("walkRight");
+            animator->stop();
             break;
         
         default:
             break;
     }
     animator->update();
-    mySprite.setPosition(x, y);
+    mySprite.setPosition(position.current.x, position.current.y);
 }
 
 float Player::getSpeed() {
