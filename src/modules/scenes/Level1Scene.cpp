@@ -16,6 +16,6 @@ void Level1Scene::update(float dt) {
     player->update(dt);
 }
 
-void Level1Scene::render(Engine2D* engine2D) {
-    engine2D->drawSprite(player->getMySprite());
+void Level1Scene::render(Engine2D* engine2D, float alpha) {
+    player->render(engine2D, alpha);
 }

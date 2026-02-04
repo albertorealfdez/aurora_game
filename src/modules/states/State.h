@@ -21,7 +21,7 @@ class State {
         virtual void init() = 0;
         virtual void handleInput(InputManager& inputManager) = 0;
         virtual void update(float dt) = 0;
-        virtual void render(Engine2D* engine2D) = 0;
+        virtual void render(Engine2D* engine2D, float alpha) = 0;
 };
 
 #endif /* STATE_H */

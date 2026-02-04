@@ -50,7 +50,7 @@ void Game::run() {
         percentTick = min(1.f, elapsedTime / updateTime);
         
         engine2D->beginFrame();
-        currentState->render(engine2D);
+        currentState->render(engine2D, percentTick);
         engine2D->endFrame();
 
         if (inputManager.isQuitRequested()) {

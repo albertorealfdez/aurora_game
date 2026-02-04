@@ -22,14 +22,10 @@ void Player::init() {
         "walkRight",
         {0, 1, 2, 3, 4, 5, 6, 7},
         0,
-        0.2f
+        0.1f
     };
 
     animator->addAnimation("walkRight", walkRight);
-}
-
-MySprite& Player::getMySprite() {
-    return mySprite;
 }
 
 void Player::handleInput(InputManager& inputManager) {
@@ -61,8 +57,19 @@ void Player::update(float dt) {
         default:
             break;
     }
-    animator->update();
-    mySprite.setPosition(position.current.x, position.current.y);
+    animator->update(dt);
+}
+
+void Player::render(Engine2D* engine2D, float alpha) {
+    Vector2 interpolated = position.interpolate(alpha);
+    mySprite.setPosition(interpolated.x, interpolated.y);
+    animator->applyFrame();
+
+    engine2D->drawSprite(getMySprite());
+}
+
+MySprite& Player::getMySprite() {
+    return mySprite;
 }
 
 float Player::getSpeed() {

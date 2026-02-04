@@ -16,14 +16,13 @@ class Animator {
         float timer;
         bool playing;
 
-        void applyFrame();
-
     public:
         Animator(MySprite& sprite);
         void addAnimation(string name, Animation animation);
         void play(string name);
         void stop();
-        void update();
+        void update(float dt);
+        void applyFrame();
 };
 
 #endif /* ANIMATOR_H */

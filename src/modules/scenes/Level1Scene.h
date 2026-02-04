@@ -13,7 +13,7 @@ class Level1Scene: public Scene{
         void init() override;
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
-        void render(Engine2D* engine2D) override;
+        void render(Engine2D* engine2D, float alpha) override;
 };
 
 #endif /* LEVEL1_SCENE_H */

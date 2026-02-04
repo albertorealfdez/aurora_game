@@ -9,10 +9,12 @@ Animator::Animator(MySprite& sprite): sprite(sprite) {
 }
 
 void Animator::applyFrame() {
-    int row = currentAnimation->row;
-    int col = currentAnimation->frames[currentFrame];
+    if (currentAnimation) {
+        int row = currentAnimation->row;
+        int col = currentAnimation->frames[currentFrame];
 
-    sprite.setFrame(row, col);
+        sprite.setFrame(row, col);
+    }
 }
 
 void Animator::addAnimation(string name, Animation animation) {
@@ -29,8 +31,6 @@ void Animator::play(string name) {
         currentAnimation = &animations[name];
         currentFrame = 0;
         timer = 0.f;
-
-        applyFrame();
     }
 }
 
@@ -40,10 +40,10 @@ void Animator::stop() {
     timer = 0.f;
 }
 
-void Animator::update() {
+void Animator::update(float dt) {
     if (playing) {
         if (currentAnimation) {
-            timer++;
+            timer += dt;
 
             if (timer >= currentAnimation->duration) {
                 timer -= currentAnimation->duration;
@@ -57,7 +57,6 @@ void Animator::update() {
                     }
                 }
             }
-            applyFrame();
         }
     }
 }

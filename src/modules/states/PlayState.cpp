@@ -22,6 +22,6 @@ void PlayState::update(float dt) {
     sceneManager->getCurrentScene()->update(dt);
 }
 
-void PlayState::render(Engine2D* engine2D) {
-    sceneManager->getCurrentScene()->render(engine2D);
+void PlayState::render(Engine2D* engine2D, float alpha) {
+    sceneManager->getCurrentScene()->render(engine2D, alpha);
 }

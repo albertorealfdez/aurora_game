@@ -4,6 +4,7 @@
 #include "InputManager.h"
 #include "InterpolatedPosition.h"
 #include "MySprite.h"
+#include "Engine2D.h"
 
 class Entity {
     protected:
@@ -15,6 +16,7 @@ class Entity {
         virtual MySprite& getMySprite() = 0;
         virtual void handleInput(InputManager& inputManager) = 0;
         virtual void update(float dt) = 0;
+        virtual void render(Engine2D* engine2D, float alpha) = 0;
         
 };
 

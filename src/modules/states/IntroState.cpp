@@ -18,6 +18,6 @@ void IntroState::update(float dt) {
     
 }
 
-void IntroState::render(Engine2D* engine2D) {
+void IntroState::render(Engine2D* engine2D, float alpha) {
     engine2D->drawText("Hello", 100, 200, 32);
 }

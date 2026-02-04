@@ -17,10 +17,12 @@ class Player: public Entity {
         Player();
 
         void init() override;
-        MySprite& getMySprite() override;
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
+        void render(Engine2D* engine2D, float alpha) override;
 
+
+        MySprite& getMySprite() override;
         float getSpeed();
         void setSpeed(float speed);
         void setState(PlayerState newState);
