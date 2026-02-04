@@ -6,7 +6,7 @@
 #include "MySprite.h"
 
 SFMLGraphicEngine::SFMLGraphicEngine() {
-    window = new sf::RenderWindow(sf::VideoMode(800, 600), "Aurora Game");
+    window = new sf::RenderWindow(sf::VideoMode(1024, 768), "Aurora Game");
 
     if (!font.loadFromFile("./assets/fonts/arial.ttf")) {
         throw std::runtime_error("Error loading font");
