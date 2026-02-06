@@ -17,7 +17,8 @@ class MySprite {
         const sf::Sprite& getSprite() const;
         void setPosition(float x, float y);
         void move(float dx, float dy);
-        void setTexture(const string& path);
+        void setTexture(const sf::Texture& texture);
+        const sf::Texture* getTexture() const;
         void setScale(float x, float y);
         void setTextureRect(int x, int y, int w, int h);
 

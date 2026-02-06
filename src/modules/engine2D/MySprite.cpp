@@ -17,14 +17,12 @@ void MySprite::move(float dx, float dy) {
     sprite.move(dx, dy);
 }
 
-void MySprite::setTexture(const string& path) {
-    
-    if (!texture.loadFromFile(path)) {
-        cout<< "Error cargando la imagen sprites.png"<<endl;
-    } else {
-        cout<<"Texture loaded"<<endl;
-    }
+void MySprite::setTexture(const sf::Texture& texture) {
     sprite.setTexture(texture);
+}
+
+const sf::Texture* MySprite::getTexture() const {
+    return sprite.getTexture();
 }
 
 void MySprite::setScale(float x, float y) {

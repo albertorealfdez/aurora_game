@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-Animator::Animator() {
+Animator::Animator(TextureManager& tm): textureManager(tm) {
     currentAnimation = nullptr;
     playing = true;
     paused = false;
@@ -55,9 +55,16 @@ void Animator::update(float dt) {
 
 void Animator::applyFrame(MySprite& sprite) {
     if (currentAnimation) {
+        sf::Texture* texture = textureManager.get(currentAnimation->textureName);
+
+        if (sprite.getTexture() != texture) {
+            sprite.setTexture(*texture);
+        }
+
         int frame = currentAnimation->frames[currentFrame];
         int fx = (frame % currentAnimation->columns) * currentAnimation->frameWidth;
         int fy = (frame / currentAnimation->columns) * currentAnimation->frameHeight;
+
         sprite.setTextureRect(fx, fy, currentAnimation->frameWidth, currentAnimation->frameHeight);
     }
 }

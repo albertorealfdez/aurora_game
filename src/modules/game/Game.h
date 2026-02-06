@@ -2,9 +2,10 @@
 #define GAME_H
 
 #include "Engine2D.h"
+#include "Clock.h"
 #include "StateManager.h"
 #include "InputManager.h"
-#include "Clock.h"
+#include "TextureManager.h"
 
 class Game {
     private:
@@ -12,6 +13,7 @@ class Game {
         Engine2D* engine2D;
         StateManager* stateManager;
         InputManager inputManager;
+        TextureManager textureManager;
         Clock clock;
         
         bool limitRender;
@@ -24,10 +26,12 @@ class Game {
         ~Game();
 
         static Game* getInstance();
+        StateManager* getStateManager();
+
+        void loadTextures();
         void run();
         void quit();
 
-        StateManager* getStateManager() { return stateManager; }
 };
 
 #endif /* GAME_H */

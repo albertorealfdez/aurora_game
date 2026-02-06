@@ -13,6 +13,8 @@ Game::Game() {
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
+
+    loadTextures();
 }
 
 Game::~Game() {
@@ -27,6 +29,14 @@ Game* Game::getInstance()
     }
         
     return instance;
+}
+
+StateManager* Game::getStateManager() {
+    return stateManager;
+}
+
+void Game::loadTextures() {
+    textureManager.load("player-walk", "assets/sprites/warrior-run.png");
 }
 
 void Game::run() {

@@ -14,8 +14,8 @@ enum class PlayerState {
 
 class Player: public Entity {
     public:
-        Player();
-
+        Player(TextureManager& tm);
+        
         void init() override;
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
