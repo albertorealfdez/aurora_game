@@ -10,19 +10,15 @@ Player::Player() {
 void Player::init() {
     mySprite.setTexture("assets/sprites/warrior-run.png");
     mySprite.setTextureRect(0, 0, 128, 128);
-    //mySprite.setScale(1.0f, 1.0f);
-    //mySprite.setPosition(position.current.x, position.current.y);
-    //mySprite.setFrameHeight(128);
-    //mySprite.setFrameWidth(128);
 
     animator = new Animator();
 
     Animation walkRight;
     walkRight.textureName = "walk-right";
     walkRight.frames = {0, 1, 2, 3, 4, 5},
-    walkRight.columns = 1;
-    walkRight.frameWidth = 100;
-    walkRight.frameHeight = 100;  
+    walkRight.columns = 4;
+    walkRight.frameWidth = 128;
+    walkRight.frameHeight = 164;  
 
     animator->addAnimation("walkRight", walkRight);
 }
@@ -49,7 +45,6 @@ void Player::update(float dt) {
             break;
 
         case PlayerState::Idle:
-            //animator->play("walkRight");
             animator->stop();
             break;
         
