@@ -22,6 +22,12 @@ Game::~Game() {
     delete stateManager;
 }
 
+void Game::loadTextures() {
+    //textureManager.load("player-idle", "assets/sprites/warrior-idle.png");
+    //textureManager.load("player-walk", "assets/sprites/warrior-run.png");
+    textureManager.load("player-walk", "assets/sprites/player-walk.png");
+}
+
 Game* Game::getInstance()
 {
     if(instance == 0) {
@@ -35,8 +41,8 @@ StateManager* Game::getStateManager() {
     return stateManager;
 }
 
-void Game::loadTextures() {
-    textureManager.load("player-walk", "assets/sprites/warrior-run.png");
+TextureManager& Game::getTextureManager() {
+    return textureManager;
 }
 
 void Game::run() {

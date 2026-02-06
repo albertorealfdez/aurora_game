@@ -29,6 +29,10 @@ void MySprite::setScale(float x, float y) {
     sprite.setScale(x, y);
 }
 
+void MySprite::setOrigin(float x, float y) {
+    sprite.setOrigin(x, y);
+}
+
 void MySprite::setTextureRect(int x, int y, int w, int h) {
     sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }

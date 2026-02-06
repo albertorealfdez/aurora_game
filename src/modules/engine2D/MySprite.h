@@ -20,6 +20,7 @@ class MySprite {
         void setTexture(const sf::Texture& texture);
         const sf::Texture* getTexture() const;
         void setScale(float x, float y);
+        void setOrigin(float x, float y);
         void setTextureRect(int x, int y, int w, int h);
 
 };  

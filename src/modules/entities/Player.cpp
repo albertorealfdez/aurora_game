@@ -1,26 +1,24 @@
 #include "Player.h"
 
-Player::Player() {
+Player::Player(TextureManager& tm) {
     position.current = {200.f, 100.f}; 
     position.last = position.current;
     speed = 180.f;
     mySprite = MySprite();
+    animator = new Animator(tm);
 }
 
-void Player::init(TextureManager& tm) {
-    //mySprite.setTexture("assets/sprites/warrior-run.png");
-    //mySprite.setTextureRect(0, 0, 128, 128);
-
-    animator = new Animator(tm);
-
+void Player::init() {
     Animation walkRight;
     walkRight.textureName = "player-walk";
-    walkRight.frames = {0, 1, 2, 3, 4, 5},
+    walkRight.frames = {0, 1, 2, 3},
     walkRight.columns = 4;
-    walkRight.frameWidth = 128;
-    walkRight.frameHeight = 164;  
+    walkRight.frameWidth = 64;
+    walkRight.frameHeight = 64;  
 
-    animator->addAnimation("playerWalk", walkRight);
+    animator->addAnimation("walk", walkRight);
+    animator->play("walk");
+    setState(PlayerState::Idle);
 }
 
 void Player::handleInput(InputManager& inputManager) {
@@ -28,26 +26,38 @@ void Player::handleInput(InputManager& inputManager) {
     if (inputManager.isKeyPressed(Key::D)) {
         setState(PlayerState::WalkRight);
     }
+    if (inputManager.isKeyPressed(Key::A)) {
+        setState(PlayerState::WalkLeft);
+    }
 
     // Released key states
-    if (inputManager.isKeyReleased(Key::D)) {
+    if (inputManager.isKeyReleased(Key::D) || inputManager.isKeyReleased(Key::A)) {
         setState(PlayerState::Idle);
     }
+
 }
 
 void Player::update(float dt) {
     position.last =  position.current;
 
     switch (state) {
-        case PlayerState::WalkRight:
-            animator->play("playerWalk");
-            position.current.x += speed * dt;
-            break;
-
         case PlayerState::Idle:
-            animator->stop();
+            animator->pause();
             break;
         
+        case PlayerState::WalkRight:
+            animator->play("walk");
+            position.current.x += speed * dt;
+            mySprite.setScale(1.f, 1.f);
+            mySprite.setOrigin(0.f, 0.f);
+            break;
+
+        case PlayerState::WalkLeft:
+            animator->play("walk");
+            position.current.x -= speed * dt;
+            mySprite.setScale(-1.f, 1.f);
+            mySprite.setOrigin(64.f, 0.f);
+            break;
         default:
             break;
     }

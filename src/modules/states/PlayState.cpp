@@ -3,7 +3,7 @@
 #include "Level1Scene.h"
 
 PlayState::PlayState(Game* game): State(game) {
-    player = new Player();
+    player = new Player(game->getTextureManager());
     sceneManager = new SceneManager();
 }
 

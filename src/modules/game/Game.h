@@ -20,15 +20,16 @@ class Game {
         int renderFPS;
         float updateTime;
         bool running;
+
         Game();
+        void loadTextures();
 
     public:
         ~Game();
 
         static Game* getInstance();
         StateManager* getStateManager();
-
-        void loadTextures();
+        TextureManager& getTextureManager();
         void run();
         void quit();
 
