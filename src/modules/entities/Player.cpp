@@ -10,14 +10,14 @@ Player::Player(TextureManager& tm) {
 
 void Player::init() {
     Animation walkRight;
-    walkRight.textureName = "player-walk";
+    walkRight.textureName = "player_walk";
     walkRight.frames = {0, 1, 2, 3},
     walkRight.columns = 4;
     walkRight.frameWidth = 64;
     walkRight.frameHeight = 64;  
 
-    animator->addAnimation("walk", walkRight);
-    animator->play("walk");
+    animator->addAnimation("player_walk", walkRight);
+    animator->play("player_walk");
     setState(PlayerState::Idle);
 }
 
@@ -46,14 +46,14 @@ void Player::update(float dt) {
             break;
         
         case PlayerState::WalkRight:
-            animator->play("walk");
+            animator->play("player_walk");
             position.current.x += speed * dt;
             mySprite.setScale(1.f, 1.f);
             mySprite.setOrigin(0.f, 0.f);
             break;
 
         case PlayerState::WalkLeft:
-            animator->play("walk");
+            animator->play("player_walk");
             position.current.x -= speed * dt;
             mySprite.setScale(-1.f, 1.f);
             mySprite.setOrigin(64.f, 0.f);

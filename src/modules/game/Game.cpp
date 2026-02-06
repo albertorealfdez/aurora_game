@@ -23,9 +23,7 @@ Game::~Game() {
 }
 
 void Game::loadTextures() {
-    //textureManager.load("player-idle", "assets/sprites/warrior-idle.png");
-    //textureManager.load("player-walk", "assets/sprites/warrior-run.png");
-    textureManager.load("player-walk", "assets/sprites/player-walk.png");
+    textureManager.load("player_walk", "assets/sprites/player_walk.png");
 }
 
 Game* Game::getInstance()
