@@ -31,8 +31,6 @@ class Player: public Entity {
         float speed;
         Animator* animator;
         PlayerState state;
-        float x; // Temporal
-        float y; // Temporal
 };
 
 #endif /* PLAYER_H */

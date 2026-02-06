@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-Animator::Animator(MySprite& sprite): sprite(sprite) {
+Animator::Animator() {
     currentAnimation = nullptr;
     playing = true;
     currentFrame = 0;
@@ -8,12 +8,13 @@ Animator::Animator(MySprite& sprite): sprite(sprite) {
 
 }
 
-void Animator::applyFrame() {
+void Animator::applyFrame(MySprite& sprite) {
     if (currentAnimation) {
-        int row = currentAnimation->row;
-        int col = currentAnimation->frames[currentFrame];
-
-        sprite.setFrame(row, col);
+        int frame = currentAnimation->frames[currentFrame];
+        int fx = (frame % currentAnimation->columns) * currentAnimation->frameWidth;
+        int fy = (frame / currentAnimation->columns) * currentAnimation->frameHeight;
+        
+        sprite.setTextureRect(fx, fy, currentAnimation->frameWidth, currentAnimation->frameHeight);
     }
 }
 
@@ -22,15 +23,12 @@ void Animator::addAnimation(string name, Animation animation) {
 }
 
 void Animator::play(string name) {
-    playing = true;
-    if (currentAnimation && currentAnimation->name == name) {
-        return;
-    }
-
-    if (animations.count(name)) {
+    
+    if (animations.count(name) && currentAnimation != &animations[name]) {
         currentAnimation = &animations[name];
         currentFrame = 0;
         timer = 0.f;
+        playing = true;
     }
 }
 

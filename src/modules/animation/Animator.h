@@ -9,7 +9,6 @@ using namespace std;
 
 class Animator {
     private:
-        MySprite& sprite;
         unordered_map<string, Animation> animations;
         Animation* currentAnimation;
         int currentFrame;
@@ -17,12 +16,12 @@ class Animator {
         bool playing;
 
     public:
-        Animator(MySprite& sprite);
+        Animator();
         void addAnimation(string name, Animation animation);
         void play(string name);
         void stop();
         void update(float dt);
-        void applyFrame();
+        void applyFrame(MySprite& sprite);
 };
 
 #endif /* ANIMATOR_H */

@@ -4,9 +4,11 @@
 using namespace std;
 
 struct Animation {
-    string name;
+    string textureName;
     vector<int> frames;
-    int row;
-    float duration;
+    float duration = 0.1f;
+    int frameWidth;
+    int frameHeight;
+    int columns;
     bool loop = true;
 };

@@ -1,29 +1,28 @@
 #include "Player.h"
 
 Player::Player() {
-    x = 200.f;
-    y = 100.f;
+    position.current = {200.f, 100.f}; 
+    position.last = position.current;
     speed = 180.f;
-
-    position.set(x, y);
+    mySprite = MySprite();
 }
 
 void Player::init() {
-    mySprite.setTexture("assets/sprites/warrior.png");
-    mySprite.setTextureRect(0, 0, 90, 90);
-    mySprite.setScale(1.0f, 1.0f);
-    mySprite.setPosition(x, y);
-    mySprite.setFrameHeight(90);
-    mySprite.setFrameWidth(90);
+    mySprite.setTexture("assets/sprites/warrior-run.png");
+    mySprite.setTextureRect(0, 0, 128, 128);
+    //mySprite.setScale(1.0f, 1.0f);
+    //mySprite.setPosition(position.current.x, position.current.y);
+    //mySprite.setFrameHeight(128);
+    //mySprite.setFrameWidth(128);
 
-    animator = new Animator(mySprite);
+    animator = new Animator();
 
-    Animation walkRight = {
-        "walkRight",
-        {0, 1, 2, 3, 4, 5, 6, 7},
-        0,
-        0.1f
-    };
+    Animation walkRight;
+    walkRight.textureName = "walk-right";
+    walkRight.frames = {0, 1, 2, 3, 4, 5},
+    walkRight.columns = 1;
+    walkRight.frameWidth = 100;
+    walkRight.frameHeight = 100;  
 
     animator->addAnimation("walkRight", walkRight);
 }
@@ -63,7 +62,7 @@ void Player::update(float dt) {
 void Player::render(Engine2D* engine2D, float alpha) {
     Vector2 interpolated = position.interpolate(alpha);
     mySprite.setPosition(interpolated.x, interpolated.y);
-    animator->applyFrame();
+    animator->applyFrame(mySprite);
 
     engine2D->drawSprite(getMySprite());
 }
