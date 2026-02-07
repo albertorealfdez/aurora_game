@@ -28,8 +28,10 @@ void StateManager::changeState(State* state) {
 }
 
 void StateManager::popState() {
-    delete states.back();
-    states.pop_back();
+    if (!states.empty()) {
+        delete states.back();
+        states.pop_back();
+    }
 }
 
 void StateManager::pushState(State* state) {
