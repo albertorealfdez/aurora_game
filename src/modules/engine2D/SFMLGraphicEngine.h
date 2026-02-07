@@ -9,6 +9,7 @@ using namespace std;
 class SFMLGraphicEngine: public GraphicEngine {
     private:
         sf::RenderWindow* window;
+        sf::View view;
         sf::Font font;
 
     public:
