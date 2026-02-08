@@ -3,12 +3,14 @@
 
 #include "GraphicEngine.h"
 #include "SFMLGraphicEngine.h"
+#include "Camera.h"
 
 using namespace std;
 
 class Engine2D {
     private:
         GraphicEngine* graphics;
+        Camera camera;
 
     public:
         Engine2D();

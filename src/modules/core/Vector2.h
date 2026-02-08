@@ -1,3 +1,6 @@
+#ifndef VECTOR2_H
+#define VECTOR2_H
+
 struct Vector2 {
     float x;
     float y;
@@ -8,3 +11,5 @@ struct Vector2 {
         y = newY;
     }
 };
+
+#endif /* VECTOR2_H */

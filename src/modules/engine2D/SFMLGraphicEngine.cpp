@@ -6,7 +6,7 @@
 #include "MySprite.h"
 
 SFMLGraphicEngine::SFMLGraphicEngine() {
-    window = new sf::RenderWindow(sf::VideoMode(1024, 768), "Aurora Game");
+    window = new sf::RenderWindow(sf::VideoMode(1280, 720), "Aurora Game");
 
     if (!font.loadFromFile("./assets/fonts/Cinzel-Regular.ttf")) {
         cerr<<"Error loading font"<<endl;
@@ -97,6 +97,16 @@ void SFMLGraphicEngine::clear() {
 
 void SFMLGraphicEngine::display() {
     window->display();
+}
+
+void SFMLGraphicEngine::setCamera(Camera& camera) {
+    view.setCenter(camera.getPosition().x, camera.getPosition().y);
+
+    view.setSize(
+        camera.getSize().x * camera.getZoom(),
+        camera.getSize().y * camera.getZoom()
+    );
+    window->setView(view);
 }
 
 void SFMLGraphicEngine::drawText(const string& text, float x, float y, unsigned size) {

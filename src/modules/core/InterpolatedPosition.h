@@ -1,3 +1,6 @@
+#ifndef INTERPOLATEDPOS_H
+#define INTERPOLATEDPOS_H
+
 #include "Vector2.h"
 
 class InterpolatedPosition {
@@ -18,3 +21,5 @@ class InterpolatedPosition {
             return Vector2(newX, newY);
         }
 };
+
+#endif /* INTERPOLATEDPOS_H */
