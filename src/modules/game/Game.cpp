@@ -40,7 +40,7 @@ StateManager* Game::getStateManager() {
     return stateManager;
 }
 
-TextureManager& Game::getTextureManager() {
+ResourceManager<Texture>& Game::getTextureManager() {
     return textureManager;
 }
 

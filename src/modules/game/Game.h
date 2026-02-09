@@ -5,7 +5,8 @@
 #include "Clock.h"
 #include "StateManager.h"
 #include "InputManager.h"
-#include "TextureManager.h"
+#include "Texture.h"
+#include "ResourceManager.h"
 #include "Camera.h"
 
 class Game {
@@ -15,7 +16,7 @@ class Game {
         Engine2D* engine2D;
         StateManager* stateManager;
         InputManager inputManager;
-        TextureManager textureManager;
+        ResourceManager<Texture> textureManager;
         Clock clock;
         
         bool limitRender;
@@ -35,7 +36,7 @@ class Game {
 
         static Game* getInstance();
         StateManager* getStateManager();
-        TextureManager& getTextureManager();
+        ResourceManager<Texture>& getTextureManager();
         void run();
         void quit();
 

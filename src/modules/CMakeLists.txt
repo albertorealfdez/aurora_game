@@ -4,8 +4,8 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/Engine2D.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/SFMLGraphicEngine.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/MySprite.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/TextureManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/Camera.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/TextureManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/input/InputManager.cpp"    
     "${CMAKE_CURRENT_SOURCE_DIR}/states/StateManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/states/IntroState.cpp"
@@ -14,6 +14,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/scenes/Level1Scene.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/animation/Animator.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLTexture.cpp"
 )
 
 # Y donde se encuentran los .h
@@ -26,4 +27,5 @@ target_include_directories(modulesLib PUBLIC
 "${CMAKE_CURRENT_SOURCE_DIR}/scenes/"
 "${CMAKE_CURRENT_SOURCE_DIR}/entities/"
 "${CMAKE_CURRENT_SOURCE_DIR}/animation/"
+"${CMAKE_CURRENT_SOURCE_DIR}/resources/"
 )

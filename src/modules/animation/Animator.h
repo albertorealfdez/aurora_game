@@ -4,13 +4,14 @@
 #include <unordered_map>        
 #include "Animation.h"
 #include "MySprite.h"
-#include "TextureManager.h"
+#include "Texture.h"
+#include "ResourceManager.h"
 
 using namespace std;
 
 class Animator {
     private:
-        TextureManager& textureManager;
+        ResourceManager<Texture>& textureManager;
 
         unordered_map<string, Animation> animations;
         Animation* currentAnimation;
@@ -20,7 +21,7 @@ class Animator {
         bool paused;
 
     public:
-        Animator(TextureManager& tm);
+        Animator(ResourceManager<Texture>& tm);
         void addAnimation(string name, Animation animation);
         void play(string name);
         void pause();

@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-Animator::Animator(TextureManager& tm): textureManager(tm) {
+Animator::Animator(ResourceManager<Texture>& tm): textureManager(tm) {
     currentAnimation = nullptr;
     playing = true;
     paused = false;
@@ -55,7 +55,7 @@ void Animator::update(float dt) {
 
 void Animator::applyFrame(MySprite& sprite) {
     if (currentAnimation) {
-        sf::Texture* texture = textureManager.get(currentAnimation->textureName);
+        Texture* texture = textureManager.get(currentAnimation->textureName);
 
         if (sprite.getTexture() != texture) {
             sprite.setTexture(*texture);

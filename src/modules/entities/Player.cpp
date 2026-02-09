@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(TextureManager& tm) {
+Player::Player(ResourceManager<Texture>& tm) {
     position.current = {640/2.f, 360/2.f};  // TODO: move to config?
     position.last = position.current;
     speed = 180.f;
