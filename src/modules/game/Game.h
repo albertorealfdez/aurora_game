@@ -6,6 +6,7 @@
 #include "StateManager.h"
 #include "InputManager.h"
 #include "TextureManager.h"
+#include "Camera.h"
 
 class Game {
     private:
@@ -21,6 +22,7 @@ class Game {
         int renderFPS;
         float updateTime;
         bool running;
+        float smoothFactor;
 
         Game();
         void handleInput();

@@ -2,8 +2,8 @@
 
 Engine2D::Engine2D() {
     graphics = new SFMLGraphicEngine();
-    camera.setSize(640, 360);
-    camera.setPosition(640/2, 360/2);
+    camera.setSize(640, 360); // TODO: move to constant/config
+    camera.setPosition(640/2.f, 360/2.f);
     camera.setZoom(1.f);
 }
 
@@ -13,6 +13,10 @@ Engine2D::~Engine2D() {
 
 GraphicEngine& Engine2D::getGraphicEngine() {
     return *graphics;
+}
+
+Camera& Engine2D::getCamera() {
+    return camera;
 }
 
 bool Engine2D::isOpen() {

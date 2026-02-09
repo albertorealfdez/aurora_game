@@ -13,7 +13,8 @@ Game::Game() {
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
-
+    smoothFactor = 0.1f;
+    
     loadTextures();
 }
 
@@ -78,6 +79,15 @@ void Game::handleInput() {
 
 void Game::update(float dt) {
     currentState->update(dt);
+
+    Vector2 target = currentState->getCameraTarget();
+    Camera& camera = engine2D->getCamera();
+    
+    Vector2 currentPosition = camera.getPosition();
+    Vector2 newPosition;
+    newPosition.x = currentPosition.x + (target.x - currentPosition.x) * smoothFactor;
+    newPosition.y = currentPosition.y + (target.y - currentPosition.y) * smoothFactor;
+    camera.setPosition(newPosition.x, newPosition.y);
 }
 
 void Game::render(float alpha) {

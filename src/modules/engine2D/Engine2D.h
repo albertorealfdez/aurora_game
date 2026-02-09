@@ -17,6 +17,7 @@ class Engine2D {
         ~Engine2D();
 
         GraphicEngine& getGraphicEngine();
+        Camera& getCamera();
         bool isOpen();
         void pollEvent();
         void beginFrame();

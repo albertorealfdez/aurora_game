@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player(TextureManager& tm) {
-    position.current = {200.f, 100.f}; 
+    position.current = {640/2.f, 360/2.f};  // TODO: move to config?
     position.last = position.current;
     speed = 180.f;
     mySprite = MySprite();
