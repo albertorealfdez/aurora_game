@@ -10,6 +10,7 @@
 class Game {
     private:
         static Game* instance;
+        State* currentState;
         Engine2D* engine2D;
         StateManager* stateManager;
         InputManager inputManager;
@@ -22,6 +23,9 @@ class Game {
         bool running;
 
         Game();
+        void handleInput();
+        void update(float dt);
+        void render(float alpha);
         void loadTextures();
 
     public:

@@ -48,30 +48,42 @@ void Game::run() {
     float percentTick = 0.f;
 
     while(running && engine2D->isOpen()) {
-        State* currentState = stateManager->getCurrentState();
+        currentState = stateManager->getCurrentState();
         
-        inputManager.pollEvents(engine2D->getGraphicEngine());
-        currentState->handleInput(inputManager);
+        handleInput();
 
         elapsedTime = clock.getElapsedTime();
 
         if (elapsedTime >= updateTime) {
-            currentState->update(updateTime);
+            update(updateTime);
             clock.restart();
             elapsedTime = 0.f;
         }
 
         percentTick = min(1.f, elapsedTime / updateTime);
         
-        engine2D->beginFrame();
-        currentState->render(engine2D, percentTick);
-        engine2D->endFrame();
+        render(percentTick);
 
         if (inputManager.isQuitRequested()) {
             quit();
         }
         stateManager->processPending();
     }
+}
+
+void Game::handleInput() {
+    inputManager.pollEvents(engine2D->getGraphicEngine());
+    currentState->handleInput(inputManager);
+}
+
+void Game::update(float dt) {
+    currentState->update(dt);
+}
+
+void Game::render(float alpha) {
+    engine2D->beginFrame();
+    currentState->render(engine2D, alpha);
+    engine2D->endFrame();
 }
 
 void Game::quit() {
