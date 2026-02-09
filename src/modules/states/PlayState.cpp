@@ -14,6 +14,10 @@ void PlayState::init() {
     sceneManager->processPending();
 }
 
+Vector2 PlayState::getCameraTarget() const {
+    return sceneManager->getCurrentScene()->getCameraTarget();
+}
+
 void PlayState::handleInput(InputManager& inputManager) {
     sceneManager->getCurrentScene()->handleInput(inputManager);
 }

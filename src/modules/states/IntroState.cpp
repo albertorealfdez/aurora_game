@@ -6,6 +6,11 @@ IntroState::IntroState(Game* game): State(game) {}
 
 void IntroState::init() {
     cout<<"Initializing IntroState"<<endl;
+    cameraStartPosition = {0.f, 0.f};
+}
+
+Vector2 IntroState::getCameraTarget() const {
+    return cameraStartPosition;
 }
 
 void IntroState::handleInput(InputManager& inputManager) {

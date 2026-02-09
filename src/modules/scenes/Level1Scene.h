@@ -11,6 +11,8 @@ class Level1Scene: public Scene{
         Level1Scene(Player* player);
         
         void init() override;
+        Vector2 getCameraTarget() const override;
+        
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
         void render(Engine2D* engine2D, float alpha) override;

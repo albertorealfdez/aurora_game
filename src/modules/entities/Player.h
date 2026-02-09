@@ -17,16 +17,17 @@ class Player: public Entity {
         Player(TextureManager& tm);
         
         void init() override;
-        void handleInput(InputManager& inputManager) override;
-        void update(float dt) override;
-        void render(Engine2D* engine2D, float alpha) override;
-
 
         MySprite& getMySprite() override;
+        Vector2 getCurrentPosition() override;
+
         float getSpeed();
         void setSpeed(float speed);
         void setState(PlayerState newState);
         
+        void handleInput(InputManager& inputManager) override;
+        void update(float dt) override;
+        void render(Engine2D* engine2D, float alpha) override;
     private:
         float speed;
         Animator* animator;

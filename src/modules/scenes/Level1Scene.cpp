@@ -8,6 +8,10 @@ void Level1Scene::init() {
 
 }
 
+Vector2 Level1Scene::getCameraTarget() const {
+    return player->getCurrentPosition();
+}
+
 void Level1Scene::handleInput(InputManager& inputManager) {
     player->handleInput(inputManager);
 }

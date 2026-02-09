@@ -21,6 +21,27 @@ void Player::init() {
     setState(PlayerState::Idle);
 }
 
+MySprite& Player::getMySprite() {
+    return mySprite;
+}
+
+Vector2 Player::getCurrentPosition() {
+    return position.current;
+}
+
+float Player::getSpeed() {
+    return speed;
+}
+
+void Player::setSpeed(float speed) {
+    this->speed = speed;
+}
+
+void Player::setState(PlayerState newState) {
+    state = newState;
+}
+
+
 void Player::handleInput(InputManager& inputManager) {
     // Pressed key states
     if (inputManager.isKeyPressed(Key::D)) {
@@ -70,20 +91,4 @@ void Player::render(Engine2D* engine2D, float alpha) {
     animator->applyFrame(mySprite);
 
     engine2D->drawSprite(getMySprite());
-}
-
-MySprite& Player::getMySprite() {
-    return mySprite;
-}
-
-float Player::getSpeed() {
-    return speed;
-}
-
-void Player::setSpeed(float speed) {
-    this->speed = speed;
-}
-
-void Player::setState(PlayerState newState) {
-    state = newState;
 }
