@@ -14,10 +14,9 @@ enum class PlayerState {
 
 class Player: public Entity {
     public:
-        Player(ResourceManager<Texture>& tm);
+        Player();
         
-        void init() override;
-
+        void init(Engine2D* engine2D) override;
         MySprite& getMySprite() override;
         Vector2 getCurrentPosition() override;
 

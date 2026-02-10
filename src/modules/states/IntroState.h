@@ -11,7 +11,7 @@ class IntroState: public State {
         IntroState(Game* game);
         ~IntroState() override = default;
 
-        void init();
+        void init(Engine2D* engine2D);
         Vector2 getCameraTarget() const override;
         
         void handleInput(InputManager& inputManager) override;

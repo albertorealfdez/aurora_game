@@ -3,13 +3,15 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "Texture.h"
+#include "SFMLTexture.h"
 
 using namespace std;
 
 class MySprite {
     private:
         sf::Sprite sprite;
-        sf::Texture texture;
+        Texture* texture;
         
     public:
         MySprite();
@@ -17,8 +19,8 @@ class MySprite {
         const sf::Sprite& getSprite() const;
         void setPosition(float x, float y);
         void move(float dx, float dy);
-        void setTexture(const sf::Texture& texture);
-        const sf::Texture* getTexture() const;
+        void setTexture(Texture* tex);
+        const Texture* getTexture() const;
         void setScale(float x, float y);
         void setOrigin(float x, float y);
         void setTextureRect(int x, int y, int w, int h);

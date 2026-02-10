@@ -15,22 +15,20 @@ class ResourceManager {
         string basePath;
 
     public:
-        T* load(const string& name, const string& path) {
-            if (resources.count(name)) {
-                return resources[name];
+        void load(const string& id, const string& path) {
+            if (!resources.count(id)) {
+                T* resource = new T();
+                if (resource->loadFromFile(path)) {
+                    resources[id] = resource;
+                } else {
+                    delete resource;
+                }
             }
-            T* resource = new T();
-            if (resource->loadFromFile(path)) {
-                resources[name] = resource;
-                return resource;
-            }
-            return nullptr;
-
         }
 
-        T* get(const string& name) {
-               if (resources.count(name)) {
-                return &resources[name];
+        T* get(const string& id) {
+               if (resources.count(id)) {
+                return resources[id];
             }
             return nullptr;
         }

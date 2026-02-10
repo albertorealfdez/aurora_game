@@ -3,13 +3,13 @@
 #include "Level1Scene.h"
 
 PlayState::PlayState(Game* game): State(game) {
-    player = new Player(game->getTextureManager());
+    player = new Player();
     sceneManager = new SceneManager();
 }
 
-void PlayState::init() {
-    player->init();
-    
+void PlayState::init(Engine2D* engine2D) {
+    player->init(engine2D);
+    engine2D->loadTexture("player_walk", "assets/sprites/player_walk.png");
     sceneManager->changeScene(new Level1Scene(player));
     sceneManager->processPending();
 }

@@ -21,7 +21,7 @@ class StateManager {
         void changeState(State* state);
         void popState();
         void pushState(State* state);
-        void processPending();
+        void processPending(Engine2D* engine2D);
 };
 
 #endif /* STATE_MANAGER_H */

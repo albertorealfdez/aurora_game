@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-Animator::Animator(ResourceManager<Texture>& tm): textureManager(tm) {
+Animator::Animator() {
     currentAnimation = nullptr;
     playing = true;
     paused = false;
@@ -8,6 +8,11 @@ Animator::Animator(ResourceManager<Texture>& tm): textureManager(tm) {
     timer = 0.f;
 
 }
+
+void Animator::setTextureGetter(TextureGetter getter) {
+    textureGetter = getter;
+}
+
 
 void Animator::addAnimation(string name, Animation animation) {
     animations[name] = animation;
@@ -55,10 +60,10 @@ void Animator::update(float dt) {
 
 void Animator::applyFrame(MySprite& sprite) {
     if (currentAnimation) {
-        Texture* texture = textureManager.get(currentAnimation->textureName);
+        Texture* texture = textureGetter(currentAnimation->textureName);
 
         if (sprite.getTexture() != texture) {
-            sprite.setTexture(*texture);
+            sprite.setTexture(texture);
         }
 
         int frame = currentAnimation->frames[currentFrame];

@@ -1,14 +1,20 @@
 #include "Player.h"
 
-Player::Player(ResourceManager<Texture>& tm) {
+Player::Player() {
     position.current = {640/2.f, 360/2.f};  // TODO: move to config?
     position.last = position.current;
     speed = 180.f;
     mySprite = MySprite();
-    animator = new Animator(tm);
+    animator = new Animator();
 }
 
-void Player::init() {
+void Player::init(Engine2D* engine2D) {
+    animator->setTextureGetter(
+        [engine2D](const std::string& id) {
+            return engine2D->getTexture(id);
+        }
+    );
+
     Animation walkRight;
     walkRight.textureName = "player_walk";
     walkRight.frames = {0, 1, 2, 3},

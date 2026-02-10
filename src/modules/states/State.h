@@ -18,7 +18,7 @@ class State {
         State(Game* game): game(game) {}
         virtual ~State() = default;
 
-        virtual void init() = 0;
+        virtual void init(Engine2D* engine2D) = 0;
         virtual Vector2 getCameraTarget() const = 0;
 
         virtual void handleInput(InputManager& inputManager) = 0;

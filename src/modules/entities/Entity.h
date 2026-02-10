@@ -12,7 +12,7 @@ class Entity {
         MySprite mySprite;
 
     public:
-        virtual void init() = 0;
+        virtual void init(Engine2D* engine2D) = 0;
         virtual MySprite& getMySprite() = 0;
         virtual Vector2 getCurrentPosition() = 0;
 

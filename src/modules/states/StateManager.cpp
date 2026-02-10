@@ -39,7 +39,7 @@ void StateManager::pushState(State* state) {
     pendingState = state;
 }
 
-void StateManager::processPending() {
+void StateManager::processPending(Engine2D* engine2D) {
     if (isChanging) {
         popState();
         isChanging = false;
@@ -47,7 +47,7 @@ void StateManager::processPending() {
 
     if (isPushing) {
         states.push_back(pendingState);
-        states.back()->init();
+        states.back()->init(engine2D);
         isPushing = false;
         pendingState = nullptr;
     }

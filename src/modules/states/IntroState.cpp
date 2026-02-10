@@ -4,7 +4,7 @@
 
 IntroState::IntroState(Game* game): State(game) {}
 
-void IntroState::init() {
+void IntroState::init(Engine2D* engine2D) {
     cout<<"Initializing IntroState"<<endl;
     cameraStartPosition = {640/2.f, 360/2.f};
 }

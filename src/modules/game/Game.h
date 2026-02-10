@@ -6,7 +6,6 @@
 #include "StateManager.h"
 #include "InputManager.h"
 #include "Texture.h"
-#include "ResourceManager.h"
 #include "Camera.h"
 
 class Game {
@@ -16,7 +15,7 @@ class Game {
         Engine2D* engine2D;
         StateManager* stateManager;
         InputManager inputManager;
-        ResourceManager<Texture> textureManager;
+        //ResourceManager<Texture> textureManager;
         Clock clock;
         
         bool limitRender;
@@ -29,14 +28,12 @@ class Game {
         void handleInput();
         void update(float dt);
         void render(float alpha);
-        void loadTextures();
 
     public:
         ~Game();
 
         static Game* getInstance();
         StateManager* getStateManager();
-        ResourceManager<Texture>& getTextureManager();
         void run();
         void quit();
 

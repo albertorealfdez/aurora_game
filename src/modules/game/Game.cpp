@@ -7,24 +7,18 @@ Game::Game() {
     engine2D = new Engine2D();
     stateManager = new StateManager();
     stateManager->pushState(new IntroState(this));
-    stateManager->processPending();
+    stateManager->processPending(engine2D);
 
     running = true;
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
     smoothFactor = 0.1f;
-    
-    loadTextures();
 }
 
 Game::~Game() {
     delete engine2D;
     delete stateManager;
-}
-
-void Game::loadTextures() {
-    textureManager.load("player_walk", "assets/sprites/player_walk.png");
 }
 
 Game* Game::getInstance()
@@ -38,10 +32,6 @@ Game* Game::getInstance()
 
 StateManager* Game::getStateManager() {
     return stateManager;
-}
-
-ResourceManager<Texture>& Game::getTextureManager() {
-    return textureManager;
 }
 
 void Game::run() {
@@ -68,7 +58,7 @@ void Game::run() {
         if (inputManager.isQuitRequested()) {
             quit();
         }
-        stateManager->processPending();
+        stateManager->processPending(engine2D);
     }
 }
 

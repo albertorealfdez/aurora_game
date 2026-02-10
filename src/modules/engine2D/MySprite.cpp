@@ -17,12 +17,17 @@ void MySprite::move(float dx, float dy) {
     sprite.move(dx, dy);
 }
 
-void MySprite::setTexture(const sf::Texture& texture) {
-    sprite.setTexture(texture);
+void MySprite::setTexture(Texture* tex) {
+    // Convertimos a SFMLTexture
+    SFMLTexture* sfTexture = dynamic_cast<SFMLTexture*>(tex);
+
+    if (sfTexture) {
+        sprite.setTexture(sfTexture->getSFMLTexture());
+    }
 }
 
-const sf::Texture* MySprite::getTexture() const {
-    return sprite.getTexture();
+const Texture* MySprite::getTexture() const {
+    return texture;
 }
 
 void MySprite::setScale(float x, float y) {
