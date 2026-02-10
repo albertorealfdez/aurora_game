@@ -13,7 +13,6 @@ Game::Game() {
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
-    smoothFactor = 0.1f;
 }
 
 Game::~Game() {

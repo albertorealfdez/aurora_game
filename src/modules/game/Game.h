@@ -22,7 +22,6 @@ class Game {
         int renderFPS;
         float updateTime;
         bool running;
-        float smoothFactor;
 
         Game();
         void handleInput();
