@@ -24,6 +24,18 @@ float Camera::getZoom() {
     return zoom;
 }
 
+void Camera::setSmooth(float smooth) {
+    smoothFactor = smooth;
+}
+
 void Camera::move(float dx, float dy) {
 
+}
+
+void Camera::update(float dt, Vector2 target) {
+    Vector2 currentPosition = getPosition();
+    Vector2 newPosition;
+    newPosition.x = currentPosition.x + (target.x - currentPosition.x) * smoothFactor * dt;
+    newPosition.y = currentPosition.y + (target.y - currentPosition.y) * smoothFactor * dt;
+    setPosition(newPosition.x, newPosition.y);
 }

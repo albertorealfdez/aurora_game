@@ -8,7 +8,7 @@ class Camera {
         Vector2 position;
         Vector2 size;
         float zoom;
-        
+        float smoothFactor;
     public:
         void setPosition(float x, float y);
         const Vector2& getPosition();
@@ -16,8 +16,10 @@ class Camera {
         Vector2 getSize();
         void setZoom(float newZoom);
         float getZoom();
+        void setSmooth(float smooth);
         
         void move(float dx, float dy);
+        void update(float dt, Vector2 target);
 };
 
 #endif /* CAMERA_H */

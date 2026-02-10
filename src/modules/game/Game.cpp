@@ -72,12 +72,7 @@ void Game::update(float dt) {
 
     Vector2 target = currentState->getCameraTarget();
     Camera& camera = engine2D->getCamera();
-    
-    Vector2 currentPosition = camera.getPosition();
-    Vector2 newPosition;
-    newPosition.x = currentPosition.x + (target.x - currentPosition.x) * smoothFactor;
-    newPosition.y = currentPosition.y + (target.y - currentPosition.y) * smoothFactor;
-    camera.setPosition(newPosition.x, newPosition.y);
+    camera.update(dt, target);
 }
 
 void Game::render(float alpha) {

@@ -5,6 +5,7 @@ Engine2D::Engine2D() {
     camera.setSize(640, 360); // TODO: move to constant/config
     camera.setPosition(640/2.f, 360/2.f);
     camera.setZoom(1.f);
+    camera.setSmooth(0.1f);
 }
 
 Engine2D::~Engine2D() {
