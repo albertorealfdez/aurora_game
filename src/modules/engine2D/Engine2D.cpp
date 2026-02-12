@@ -24,7 +24,6 @@ bool Engine2D::isOpen() {
     return graphics->isOpen();
 }
 
-
 void Engine2D::loadTexture(const string& id, const string& path) {
     resources.textureManager.load(id, path);
 }
@@ -33,6 +32,13 @@ Texture* Engine2D::getTexture(const string& id) {
     return resources.textureManager.get(id);
 }
 
+void Engine2D::loadFont(const string& id, const string& path) {
+    resources.fontManager.load(id, path);
+}
+
+Font* Engine2D::getFont(const string& id) {
+    return resources.fontManager.get(id);
+}
 
 void Engine2D::beginFrame() {
     graphics->setCamera(camera);

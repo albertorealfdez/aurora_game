@@ -8,9 +8,9 @@
 SFMLGraphicEngine::SFMLGraphicEngine() {
     window = new sf::RenderWindow(sf::VideoMode(1280, 720), "Aurora Game");
 
-    if (!font.loadFromFile("./assets/fonts/Cinzel-Regular.ttf")) {
+    /*if (!font.loadFromFile("./assets/fonts/Cinzel-Regular.ttf")) {
         cerr<<"Error loading font"<<endl;
-    }
+    }*/
 }
 
 SFMLGraphicEngine::~SFMLGraphicEngine() {

@@ -13,6 +13,8 @@ Game::Game() {
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
+
+    engine2D->loadFont("title", "./assets/fonts/Cinzel-Regular.ttf");
 }
 
 Game::~Game() {

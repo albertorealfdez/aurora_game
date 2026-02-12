@@ -14,6 +14,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/animation/Animator.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLTexture.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLFont.cpp"   
 )
 
 # Y donde se encuentran los .h

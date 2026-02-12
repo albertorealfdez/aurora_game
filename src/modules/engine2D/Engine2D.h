@@ -23,9 +23,13 @@ class Engine2D {
         bool isOpen();
         void pollEvent();
 
+        // Resources
         void loadTexture(const string& id, const string& path);
         Texture* getTexture(const string& id);
+        void loadFont(const string& id, const string& path);
+        Font* getFont(const string& id);
 
+        // Render
         void beginFrame();
         void endFrame();
         void drawText(const string& text, float x, float y, unsigned size);
