@@ -5,7 +5,7 @@ MySprite::MySprite() {
     
 }
 
-const sf::Sprite& MySprite::getSprite() const {
+const sf::Sprite& MySprite::getSFMLSprite() const {
     return sprite;
 }
 

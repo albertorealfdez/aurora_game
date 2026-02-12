@@ -16,7 +16,7 @@ class MySprite {
     public:
         MySprite();
 
-        const sf::Sprite& getSprite() const;
+        const sf::Sprite& getSFMLSprite() const;
         void setPosition(float x, float y);
         void move(float dx, float dy);
         void setTexture(Texture* tex);

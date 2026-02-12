@@ -10,7 +10,6 @@ class SFMLGraphicEngine: public GraphicEngine {
     private:
         sf::RenderWindow* window;
         sf::View view;
-        sf::Font font;
 
     public:
         SFMLGraphicEngine();
@@ -22,8 +21,8 @@ class SFMLGraphicEngine: public GraphicEngine {
         void display() override;
         void setCamera(Camera& camera) override;
 
-        void drawText(const string& text, float x, float y, unsigned size) override;
-        void drawSprite(const MySprite& mySprite);
+        void drawText(const MyText& myText) override;
+        void drawSprite(const MySprite& mySprite) override;
 };
 
 #endif /* SFMLGRAPHICENGINE_H */

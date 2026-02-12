@@ -49,8 +49,8 @@ void Engine2D::endFrame() {
     graphics->display();
 }
 
-void Engine2D::drawText(const string& text, float x, float y, unsigned size) {
-    graphics->drawText(text, x, y, size);
+void Engine2D::drawText(MyText myText) {
+    graphics->drawText(myText);
 }
 
 void Engine2D::drawSprite(const MySprite& mySprite) {

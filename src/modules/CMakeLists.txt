@@ -4,6 +4,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/Engine2D.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/SFMLGraphicEngine.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/MySprite.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/MyText.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/engine2D/Camera.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/input/InputManager.cpp"    
     "${CMAKE_CURRENT_SOURCE_DIR}/states/StateManager.cpp"

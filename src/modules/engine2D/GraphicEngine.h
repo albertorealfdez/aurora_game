@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Event.h"
 #include "MySprite.h"
+#include "MyText.h"
 #include "Camera.h"
 
 using namespace std;
@@ -17,7 +18,7 @@ class GraphicEngine {
         virtual void clear() = 0;
         virtual void display() = 0;
         virtual void setCamera(Camera& camera) = 0;
-        virtual void drawText(const string& text, float x, float y, unsigned size) = 0;
+        virtual void drawText(const MyText& myText) = 0;
         virtual void drawSprite(const MySprite& mySprite) = 0;
 };
 

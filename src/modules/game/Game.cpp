@@ -5,6 +5,8 @@ Game* Game::instance = 0;
 
 Game::Game() {
     engine2D = new Engine2D();
+    engine2D->loadFont("title", "./assets/fonts/Cinzel-Regular.ttf");
+
     stateManager = new StateManager();
     stateManager->pushState(new IntroState(this));
     stateManager->processPending(engine2D);
@@ -13,8 +15,6 @@ Game::Game() {
     limitRender = true;
     renderFPS = 60;
     updateTime = 1.f/15.f;
-
-    engine2D->loadFont("title", "./assets/fonts/Cinzel-Regular.ttf");
 }
 
 Game::~Game() {

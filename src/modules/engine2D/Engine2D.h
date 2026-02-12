@@ -32,7 +32,7 @@ class Engine2D {
         // Render
         void beginFrame();
         void endFrame();
-        void drawText(const string& text, float x, float y, unsigned size);
+        void drawText(MyText myText);
         void drawSprite(const MySprite& mySprite);
 };
 

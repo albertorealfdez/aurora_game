@@ -21,6 +21,7 @@ class ResourceManager {
                 if (resource->loadFromFile(path)) {
                     resources[id] = resource;
                 } else {
+                    cerr<<"Error loading resurce: "<<path<<endl;
                     delete resource;
                 }
             }

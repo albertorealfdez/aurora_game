@@ -7,10 +7,6 @@
 
 SFMLGraphicEngine::SFMLGraphicEngine() {
     window = new sf::RenderWindow(sf::VideoMode(1280, 720), "Aurora Game");
-
-    /*if (!font.loadFromFile("./assets/fonts/Cinzel-Regular.ttf")) {
-        cerr<<"Error loading font"<<endl;
-    }*/
 }
 
 SFMLGraphicEngine::~SFMLGraphicEngine() {
@@ -109,17 +105,13 @@ void SFMLGraphicEngine::setCamera(Camera& camera) {
     window->setView(view);
 }
 
-void SFMLGraphicEngine::drawText(const string& text, float x, float y, unsigned size) {
-    sf::Text drawableText;
-    drawableText.setFont(font);
-    drawableText.setString(text);
-    drawableText.setCharacterSize(size);
-    drawableText.setFillColor(sf::Color::White);
-    drawableText.setPosition(x, y);
-
-    window->draw(drawableText);
+void SFMLGraphicEngine::drawText(const MyText& myText) {
+    sf::View oldView = window->getView();
+    window->setView(window->getDefaultView());
+    window->draw(myText.getSFMLText());
+    window->setView(oldView);
 }
 
 void SFMLGraphicEngine::drawSprite(const MySprite& mySprite) {
-    window->draw(mySprite.getSprite());
+    window->draw(mySprite.getSFMLSprite());
 }

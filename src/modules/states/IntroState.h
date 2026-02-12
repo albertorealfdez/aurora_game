@@ -6,7 +6,8 @@
 class IntroState: public State {
     private:
         Vector2 cameraStartPosition;
-
+        MyText introText;
+        
     public:
         IntroState(Game* game);
         ~IntroState() override = default;
