@@ -106,10 +106,9 @@ void SFMLGraphicEngine::setCamera(Camera& camera) {
 }
 
 void SFMLGraphicEngine::drawText(const MyText& myText) {
-    sf::View oldView = window->getView();
     window->setView(window->getDefaultView());
     window->draw(myText.getSFMLText());
-    window->setView(oldView);
+    window->setView(view);
 }
 
 void SFMLGraphicEngine::drawSprite(const MySprite& mySprite) {

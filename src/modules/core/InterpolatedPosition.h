@@ -14,7 +14,7 @@ class InterpolatedPosition {
             current = Vector2(x, y);
         }
 
-        Vector2  interpolate(float alpha) const {
+        Vector2 interpolate(float alpha) const {
             float newX = last.x * (1.f - alpha) + current.x  * alpha;
             float newY = last.y * (1.f - alpha) + current.y  * alpha;
 

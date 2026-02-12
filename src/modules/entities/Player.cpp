@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player() {
-    position.current = {640/2.f, 360/2.f};  // TODO: move to config?
+    position.current = {1280/2.f, 720/2.f};  // TODO: move to config?
     position.last = position.current;
     speed = 180.f;
     mySprite = MySprite();
@@ -93,6 +93,7 @@ void Player::update(float dt) {
 
 void Player::render(Engine2D* engine2D, float alpha) {
     Vector2 interpolated = position.interpolate(alpha);
+     
     mySprite.setPosition(interpolated.x, interpolated.y);
     animator->applyFrame(mySprite);
 
