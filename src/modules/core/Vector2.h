@@ -10,6 +10,11 @@ struct Vector2 {
         x = newX;
         y = newY;
     }
+
+    Vector2 operator-(const Vector2 &vec2)
+    {
+        return Vector2(x - vec2.x, y - vec2.y);
+    }
 };
 
 #endif /* VECTOR2_H */
