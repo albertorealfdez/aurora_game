@@ -1,11 +1,15 @@
-add_executable(AuroraGame main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 add_library(modulesLib STATIC)
 add_subdirectory(modules)
 
+add_library(includesLib STATIC)
+add_subdirectory(include)
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
         modulesLib
+        includesLib
 )
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")

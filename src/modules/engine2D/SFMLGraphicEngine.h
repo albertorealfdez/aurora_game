@@ -2,6 +2,7 @@
 #define SFMLGRAPHICENGINE_H
 
 #include <SFML/Graphics.hpp>
+#include "tinyxml2.h"
 #include "GraphicEngine.h"
 
 using namespace std;
