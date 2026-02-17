@@ -15,7 +15,9 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/animation/Animator.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLTexture.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLFont.cpp"   
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLFont.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tilemap/Tileset.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tilemap/TileMap.cpp"
 )
 
 # Y donde se encuentran los .h
@@ -29,4 +31,5 @@ target_include_directories(modulesLib PUBLIC
 "${CMAKE_CURRENT_SOURCE_DIR}/entities/"
 "${CMAKE_CURRENT_SOURCE_DIR}/animation/"
 "${CMAKE_CURRENT_SOURCE_DIR}/resources/"
+"${CMAKE_CURRENT_SOURCE_DIR}/tilemap/"
 )
