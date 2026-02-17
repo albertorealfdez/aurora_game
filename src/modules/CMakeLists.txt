@@ -17,6 +17,7 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLTexture.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLFont.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/tilemap/Tileset.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tilemap/TileLayer.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/tilemap/TileMap.cpp"
 )
 

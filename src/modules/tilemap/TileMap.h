@@ -20,4 +20,5 @@ class TileMap {
         bool loadFromFile(const string& path);
         void processTilesets(XMLElement* mapNode);
         void processLayers(XMLElement* mapNode);
+        void render(Engine2D* engine2D);
 };

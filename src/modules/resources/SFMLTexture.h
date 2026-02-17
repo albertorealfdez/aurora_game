@@ -2,7 +2,6 @@
 #define SFMLTEXTURE_H
 
 #include <SFML/Graphics/Texture.hpp>
-#include <string>
 #include "Texture.h"
 
 using namespace std;
@@ -12,7 +11,7 @@ class SFMLTexture: public Texture {
         sf::Texture texture;
 
     public:
-        bool loadFromFile(const string& path);
+        bool loadFromFile(const string& path) override;
         const sf::Texture& getSFMLTexture() const;
 
         int getWidth() const override;

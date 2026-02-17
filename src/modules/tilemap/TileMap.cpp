@@ -1,5 +1,6 @@
-#include "TileMap.h"
 #include <iostream>
+#include "TileMap.h"
+#include "SFMLTexture.h"
 
 bool TileMap::loadFromFile(const string& path) {
     bool loadSuccess = true;
@@ -44,7 +45,8 @@ void TileMap::processTilesets(XMLElement* mapNode) {
 
         XMLElement* imgNode = tilesetNode->FirstChildElement("image");
         tileset.path = imgNode->Attribute("source");
-
+        tileset.texture = new SFMLTexture();
+        tileset.texture->loadFromFile(tileset.path);
         int imgWidht, imgHeight;
 
         tilesetNode->QueryIntAttribute("width", &imgWidht);
@@ -83,5 +85,13 @@ void TileMap::processLayers(XMLElement* mapNode) {
             }
         }
         layers.push_back(layer);
+    }
+}
+
+void TileMap::render(Engine2D* engine2D) {
+    for (TileLayer& layer: layers) {
+        if (layer.visible) {
+            layer.render(engine2D, tilesets);
+        }
     }
 }

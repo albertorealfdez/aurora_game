@@ -21,5 +21,6 @@ void Level1Scene::update(float dt) {
 }
 
 void Level1Scene::render(Engine2D* engine2D, float alpha) {
+    tilemap.render(engine2D);
     player->render(engine2D, alpha);
 }

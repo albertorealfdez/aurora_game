@@ -1,5 +1,7 @@
 #include <string>
 #include <vector>
+#include "Tileset.h"
+#include "Engine2D.h"
 
 using namespace std;
 
@@ -10,4 +12,6 @@ class TileLayer {
         int width;
         int height;
         vector<vector<int>> tiles;
+
+        void render(Engine2D* engine2D, const vector<Tileset>& tilesets);
 };
