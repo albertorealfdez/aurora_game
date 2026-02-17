@@ -21,6 +21,7 @@ void SceneManager::processPending() {
     if (pendingScene) {
         delete currentScene;
         currentScene = pendingScene;
+        currentScene->init();
         pendingScene = nullptr;
     }
 }

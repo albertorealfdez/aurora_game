@@ -5,7 +5,7 @@ Level1Scene::Level1Scene(Player* player) {
 }
 
 void Level1Scene::init() {
-
+    tilemap.loadFromFile("assets/maps/map-1.tmx"); // TODO: move to config
 }
 
 Vector2 Level1Scene::getCameraTarget() const {

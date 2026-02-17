@@ -1,4 +1,5 @@
 #include "TileMap.h"
+#include <iostream>
 
 bool TileMap::loadFromFile(const string& path) {
     bool loadSuccess = true;
@@ -20,6 +21,7 @@ bool TileMap::loadFromFile(const string& path) {
             loadSuccess = false;
         }
     } else {
+        cerr<<"Error loading tilemap tmx"<<endl;
         loadSuccess = false;
     }
 
@@ -61,7 +63,7 @@ void TileMap::processLayers(XMLElement* mapNode) {
     for (
         layerNode = mapNode->FirstChildElement("layer");
         layerNode;
-        layerNode->NextSiblingElement("layer")
+        layerNode = layerNode->NextSiblingElement("layer")
     ) {
         TileLayer layer;
 
