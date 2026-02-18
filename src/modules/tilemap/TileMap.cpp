@@ -88,7 +88,6 @@ void TileMap::processLayers(XMLElement* mapNode) {
                 tileNode = tileNode->NextSiblingElement("tile");
             }
         }
-        cout<<"Layer: "<<layer.zIndex<<endl;
         layers.push_back(layer);
         index++;
     }
