@@ -56,9 +56,18 @@ void Player::handleInput(InputManager& inputManager) {
     if (inputManager.isKeyPressed(Key::A)) {
         setState(PlayerState::WalkLeft);
     }
+    if (inputManager.isKeyPressed(Key::W)) {
+        setState(PlayerState::WalkUp);
+    }
+    if (inputManager.isKeyPressed(Key::S)) {
+        setState(PlayerState::WalkDown);
+    }
 
     // Released key states
     if (inputManager.isKeyReleased(Key::D) || inputManager.isKeyReleased(Key::A)) {
+        setState(PlayerState::Idle);
+    }
+    if (inputManager.isKeyReleased(Key::W) || inputManager.isKeyReleased(Key::S)) {
         setState(PlayerState::Idle);
     }
 
@@ -84,6 +93,20 @@ void Player::update(float dt) {
             position.current.x -= speed * dt;
             mySprite.setScale(-1.f, 1.f);
             mySprite.setOrigin(64.f, 0.f);
+            break;
+
+        case PlayerState::WalkUp:
+            animator->play("player_walk");
+            position.current.y -= speed * dt;
+            mySprite.setScale(1.f, 1.f);
+            mySprite.setOrigin(0.f, 0.f);
+            break;
+
+        case PlayerState::WalkDown:
+            animator->play("player_walk");
+            position.current.y += speed * dt;
+            mySprite.setScale(1.f, 1.f);
+            mySprite.setOrigin(0.f, 0.f);
             break;
         default:
             break;
