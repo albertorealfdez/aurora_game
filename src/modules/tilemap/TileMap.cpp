@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "TileMap.h"
 #include "SFMLTexture.h"
 
@@ -49,18 +50,19 @@ void TileMap::processTilesets(XMLElement* mapNode) {
         tileset.texture->loadFromFile(tileset.path);
         int imgWidht, imgHeight;
 
-        tilesetNode->QueryIntAttribute("width", &imgWidht);
-        tilesetNode->QueryIntAttribute("height", &imgHeight);
+        imgNode->QueryIntAttribute("width", &imgWidht);
+        imgNode->QueryIntAttribute("height", &imgHeight);
 
         tileset.columns = imgWidht / tileset.tileWidth;
         tileset.rows = imgHeight / tileset.tileHeight;
-
+        
         tilesets.push_back(tileset);
     }
 }
 
 void TileMap::processLayers(XMLElement* mapNode) {
     XMLElement* layerNode;
+    int index = 0;
 
     for (
         layerNode = mapNode->FirstChildElement("layer");
@@ -69,6 +71,8 @@ void TileMap::processLayers(XMLElement* mapNode) {
     ) {
         TileLayer layer;
 
+        layer.zIndex = index; // TODO: change from tmx
+        layer.visible = true; // TODO: change from tmx
         layer.name = string(layerNode->Attribute("name"));
         layerNode->QueryIntAttribute("width", &layer.width);
         layerNode->QueryIntAttribute("height", &layer.height);
@@ -79,18 +83,20 @@ void TileMap::processLayers(XMLElement* mapNode) {
         XMLElement* tileNode = data->FirstChildElement("tile");
 
         for (int y=0; y<layer.height; y++) {
-            for (int x=0; x<layer.height; x++) {
+            for (int x=0; x<layer.width; x++) {
                 tileNode->QueryIntAttribute("gid", &layer.tiles[y][x]);
                 tileNode = tileNode->NextSiblingElement("tile");
             }
         }
+        cout<<"Layer: "<<layer.zIndex<<endl;
         layers.push_back(layer);
+        index++;
     }
 }
 
-void TileMap::render(Engine2D* engine2D) {
+void TileMap::render(Engine2D* engine2D, vector<int> zIndexes) {
     for (TileLayer& layer: layers) {
-        if (layer.visible) {
+        if (layer.visible && find(zIndexes.begin(), zIndexes.end(), layer.zIndex) != zIndexes.end()) {
             layer.render(engine2D, tilesets);
         }
     }

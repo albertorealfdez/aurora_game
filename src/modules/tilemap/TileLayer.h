@@ -11,6 +11,7 @@ class TileLayer {
         bool visible;
         int width;
         int height;
+        int zIndex;
         vector<vector<int>> tiles;
 
         void render(Engine2D* engine2D, const vector<Tileset>& tilesets);
