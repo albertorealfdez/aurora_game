@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Player.h"
 
 Player::Player() {
@@ -75,6 +76,8 @@ void Player::handleInput(InputManager& inputManager) {
 
 void Player::update(float dt) {
     position.last =  position.current;
+    float dx = 0.f;
+    float dy = 0.f;
 
     switch (state) {
         case PlayerState::Idle:
@@ -83,34 +86,45 @@ void Player::update(float dt) {
         
         case PlayerState::WalkRight:
             animator->play("player_walk");
-            position.current.x += speed * dt;
+            dx += 1.f;
             mySprite.setScale(1.f, 1.f);
             mySprite.setOrigin(0.f, 0.f);
             break;
 
         case PlayerState::WalkLeft:
             animator->play("player_walk");
-            position.current.x -= speed * dt;
+            dx -= 1.f;
             mySprite.setScale(-1.f, 1.f);
             mySprite.setOrigin(64.f, 0.f);
             break;
 
         case PlayerState::WalkUp:
             animator->play("player_walk");
-            position.current.y -= speed * dt;
+            dy -= 1.f;
             mySprite.setScale(1.f, 1.f);
             mySprite.setOrigin(0.f, 0.f);
             break;
 
         case PlayerState::WalkDown:
             animator->play("player_walk");
-            position.current.y += speed * dt;
+            dy += 1.f;
             mySprite.setScale(1.f, 1.f);
             mySprite.setOrigin(0.f, 0.f);
             break;
         default:
             break;
     }
+
+    float length = sqrt(dx*dx + dy*dy);
+
+    if (length > 0) {
+        dx /= length;
+        dy /= length;
+    }
+
+    position.current.x += dx * speed * dt;
+    position.current.y += dy * speed * dt;
+   
     animator->update(dt);
 }
 
