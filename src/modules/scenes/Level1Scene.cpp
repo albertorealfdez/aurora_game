@@ -18,6 +18,12 @@ void Level1Scene::handleInput(InputManager& inputManager) {
 
 void Level1Scene::update(float dt) {
     player->update(dt);
+
+    //if (player->getCurrentPosition() != player->getNextPosition()) {
+    if (!tilemap.isCollision(player->getNextPosition())) {
+        player->applyMovement();
+    }
+    //}
 }
 
 void Level1Scene::render(Engine2D* engine2D, float alpha) {

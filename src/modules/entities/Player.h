@@ -23,6 +23,8 @@ class Player: public Entity {
         float getSpeed();
         void setSpeed(float speed);
         void setState(PlayerState newState);
+        Vector2 getNextPosition();
+        void applyMovement();
         
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
@@ -31,6 +33,8 @@ class Player: public Entity {
         float speed;
         Animator* animator;
         PlayerState state;
+        int dx;
+        int dy;
 };
 
 #endif /* PLAYER_H */

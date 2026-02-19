@@ -13,6 +13,7 @@ class TileMap {
         int tileHeight;
         int width;
         int height;
+        int collisionIndex;
         vector<Tileset> tilesets;
         vector<TileLayer> layers;
     
@@ -20,5 +21,6 @@ class TileMap {
         bool loadFromFile(const string& path);
         void processTilesets(XMLElement* mapNode);
         void processLayers(XMLElement* mapNode);
+        bool isCollision(Vector2 position);
         void render(Engine2D* engine2D, vector<int> zIndexes);
 };

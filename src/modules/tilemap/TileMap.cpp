@@ -63,6 +63,7 @@ void TileMap::processTilesets(XMLElement* mapNode) {
 void TileMap::processLayers(XMLElement* mapNode) {
     XMLElement* layerNode;
     int index = 0;
+    collisionIndex = 1; // TODO: change from tmx
 
     for (
         layerNode = mapNode->FirstChildElement("layer");
@@ -92,6 +93,15 @@ void TileMap::processLayers(XMLElement* mapNode) {
         index++;
     }
 }
+
+bool TileMap::isCollision(Vector2 position) {
+    int tileX = (position.x + 64 / 2)  / tileWidth; // TODO: change to sprite width
+    int tileY = (position.y + 64 - 8)/ tileHeight; // TOO: change to sprite  height
+    int collisionGID = layers[collisionIndex].tiles[tileY][tileX];
+
+    return collisionGID != 0;
+}
+
 
 void TileMap::render(Engine2D* engine2D, vector<int> zIndexes) {
     for (TileLayer& layer: layers) {

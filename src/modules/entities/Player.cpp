@@ -74,10 +74,22 @@ void Player::handleInput(InputManager& inputManager) {
 
 }
 
-void Player::update(float dt) {
+Vector2 Player::getNextPosition() {
+    return {
+        position.current.x + dx,
+        position.current.y + dy
+    };
+}
+
+void Player::applyMovement() {
     position.last =  position.current;
-    float dx = 0.f;
-    float dy = 0.f;
+    position.current.x += dx;
+    position.current.y += dy;
+}
+
+void Player::update(float dt) {
+    dx = 0.f;
+    dy = 0.f;
 
     switch (state) {
         case PlayerState::Idle:
@@ -118,13 +130,10 @@ void Player::update(float dt) {
     float length = sqrt(dx*dx + dy*dy);
 
     if (length > 0) {
-        dx /= length;
-        dy /= length;
+        dx = (dx / length) * speed * dt;
+        dy = (dy / length) * speed * dt;
     }
-
-    position.current.x += dx * speed * dt;
-    position.current.y += dy * speed * dt;
-   
+    
     animator->update(dt);
 }
 

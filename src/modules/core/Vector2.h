@@ -20,6 +20,11 @@ struct Vector2 {
     {
         return (x == vec2.x && y == vec2.y);
     }
+
+    bool operator!=(const Vector2 &vec2)
+    {
+        return (x != vec2.x || y != vec2.y);
+    }
 };
 
 #endif /* VECTOR2_H */
