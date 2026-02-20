@@ -48,7 +48,7 @@ void Player::setState(PlayerState newState) {
     state = newState;
 }
 
-
+// TODO: change to set real diagonal movement
 void Player::handleInput(InputManager& inputManager) {
     // Pressed key states
     if (inputManager.isKeyPressed(Key::D)) {

@@ -2,7 +2,6 @@
 #define PLAYER_H
 
 #include "Entity.h"
-#include "Animator.h"
 
 enum class PlayerState {
     Idle,
@@ -20,8 +19,8 @@ class Player: public Entity {
         MySprite& getMySprite() override;
         Vector2 getCurrentPosition() override;
 
-        float getSpeed();
-        void setSpeed(float speed);
+        float getSpeed() override;
+        void setSpeed(float speed) override;
         void setState(PlayerState newState);
         Vector2 getNextPosition();
         void applyMovement();
@@ -30,8 +29,6 @@ class Player: public Entity {
         void update(float dt) override;
         void render(Engine2D* engine2D, float alpha) override;
     private:
-        float speed;
-        Animator* animator;
         PlayerState state;
         int dx;
         int dy;
