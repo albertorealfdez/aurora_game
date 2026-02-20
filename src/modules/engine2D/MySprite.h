@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "Texture.h"
 #include "SFMLTexture.h"
+#include "Rect.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ class MySprite {
         void setScale(float x, float y);
         void setOrigin(float x, float y);
         void setTextureRect(int x, int y, int w, int h);
+        Rect getGlobalBounds();
 
 };  
 

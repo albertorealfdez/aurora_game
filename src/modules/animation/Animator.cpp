@@ -71,5 +71,6 @@ void Animator::applyFrame(MySprite& sprite) {
         int fy = (frame / currentAnimation->columns) * currentAnimation->frameHeight;
 
         sprite.setTextureRect(fx, fy, currentAnimation->frameWidth, currentAnimation->frameHeight);
+        sprite.setOrigin(currentAnimation->frameWidth/2, currentAnimation->frameHeight - currentAnimation->footOffset);
     }
 }

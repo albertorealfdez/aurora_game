@@ -41,3 +41,9 @@ void MySprite::setOrigin(float x, float y) {
 void MySprite::setTextureRect(int x, int y, int w, int h) {
     sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
+
+Rect MySprite::getGlobalBounds() {
+    sf::FloatRect bounds = sprite.getGlobalBounds();
+
+    return Rect(bounds.left, bounds.top, bounds.width, bounds.height);
+}

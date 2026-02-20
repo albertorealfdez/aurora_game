@@ -100,28 +100,24 @@ void Player::update(float dt) {
             animator->play("player_walk");
             dx += 1.f;
             mySprite.setScale(1.f, 1.f);
-            mySprite.setOrigin(0.f, 0.f);
             break;
 
         case PlayerState::WalkLeft:
             animator->play("player_walk");
             dx -= 1.f;
             mySprite.setScale(-1.f, 1.f);
-            mySprite.setOrigin(64.f, 0.f);
             break;
 
         case PlayerState::WalkUp:
             animator->play("player_walk");
             dy -= 1.f;
             mySprite.setScale(1.f, 1.f);
-            mySprite.setOrigin(0.f, 0.f);
             break;
 
         case PlayerState::WalkDown:
             animator->play("player_walk");
             dy += 1.f;
             mySprite.setScale(1.f, 1.f);
-            mySprite.setOrigin(0.f, 0.f);
             break;
         default:
             break;
