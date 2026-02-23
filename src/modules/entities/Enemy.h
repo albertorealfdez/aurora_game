@@ -13,6 +13,9 @@ enum class EnemyState {
 };
 
 class Enemy: public Entity {
+    private:
+        EnemyState state;
+        
     public:
         Enemy();
 
@@ -21,6 +24,8 @@ class Enemy: public Entity {
         Vector2 getCurrentPosition() override;
         float getSpeed() override;
         void setSpeed(float speed) override;
+
+        void setState(EnemyState newState);
 
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;

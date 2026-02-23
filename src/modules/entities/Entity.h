@@ -15,6 +15,8 @@ class Entity {
         Animator* animator;
 
     public:
+        virtual ~Entity() = default;
+        
         virtual void init(Engine2D* engine2D) = 0;
         virtual MySprite& getMySprite() = 0;
         virtual Vector2 getCurrentPosition() = 0;

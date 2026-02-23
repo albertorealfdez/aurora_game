@@ -12,15 +12,20 @@ enum class PlayerState {
 };
 
 class Player: public Entity {
+    private:
+        PlayerState state;
+        int dx;
+        int dy;
+    
     public:
         Player();
         
         void init(Engine2D* engine2D) override;
         MySprite& getMySprite() override;
         Vector2 getCurrentPosition() override;
-
         float getSpeed() override;
         void setSpeed(float speed) override;
+
         void setState(PlayerState newState);
         Vector2 getNextPosition();
         void applyMovement();
@@ -28,10 +33,6 @@ class Player: public Entity {
         void handleInput(InputManager& inputManager) override;
         void update(float dt) override;
         void render(Engine2D* engine2D, float alpha) override;
-    private:
-        PlayerState state;
-        int dx;
-        int dy;
 };
 
 #endif /* PLAYER_H */
