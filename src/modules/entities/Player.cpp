@@ -48,6 +48,19 @@ void Player::setState(PlayerState newState) {
     state = newState;
 }
 
+Vector2 Player::getNextPosition() {
+    return {
+        position.current.x + dx,
+        position.current.y + dy
+    };
+}
+
+void Player::applyMovement() {
+    position.last =  position.current;
+    position.current.x += dx;
+    position.current.y += dy;
+}
+
 // TODO: change to set real diagonal movement
 void Player::handleInput(InputManager& inputManager) {
     // Pressed key states
@@ -72,19 +85,6 @@ void Player::handleInput(InputManager& inputManager) {
         setState(PlayerState::Idle);
     }
 
-}
-
-Vector2 Player::getNextPosition() {
-    return {
-        position.current.x + dx,
-        position.current.y + dy
-    };
-}
-
-void Player::applyMovement() {
-    position.last =  position.current;
-    position.current.x += dx;
-    position.current.y += dy;
 }
 
 void Player::update(float dt) {

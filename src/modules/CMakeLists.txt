@@ -13,6 +13,8 @@ target_sources(modulesLib PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/scenes/SceneManager.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/scenes/Level1Scene.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/Player.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/entities/Unit.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/entities/Soldier.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/animation/Animator.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLTexture.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/SFMLFont.cpp"

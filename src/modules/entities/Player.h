@@ -16,21 +16,23 @@ class Player: public Entity {
         PlayerState state;
         int dx;
         int dy;
-    
+        float speed;
+        float health;
+
     public:
         Player();
         
         void init(Engine2D* engine2D) override;
         MySprite& getMySprite() override;
         Vector2 getCurrentPosition() override;
-        float getSpeed() override;
-        void setSpeed(float speed) override;
 
+        float getSpeed();
+        void setSpeed(float speed);
         void setState(PlayerState newState);
         Vector2 getNextPosition();
         void applyMovement();
         
-        void handleInput(InputManager& inputManager) override;
+        void handleInput(InputManager& inputManager);
         void update(float dt) override;
         void render(Engine2D* engine2D, float alpha) override;
 };
