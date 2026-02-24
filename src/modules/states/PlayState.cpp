@@ -3,7 +3,6 @@
 #include "Level1Scene.h"
 
 PlayState::PlayState(Game* game): State(game) {
-    player = new Player({1280/2.f, 720/2.f});  // TODO: move to config?
     sceneManager = new SceneManager();
 }
 
@@ -12,12 +11,17 @@ PlayState::~PlayState() {
 }
 
 void PlayState::init(Engine2D* engine2D) {
-    player->init(engine2D);
     engine2D->loadTexture("player_walk", "assets/sprites/player_walk.png");
     engine2D->loadTexture("soldier_walk", "assets/sprites/soldier_walk.png");
-    sceneManager->changeScene(new Level1Scene(player));
+    sceneManager->changeScene(new Level1Scene());
     sceneManager->processPending();
     sceneManager->getCurrentScene()->init(engine2D);
+
+    Vector2 playerPosition = sceneManager->getCurrentScene()->getPlayerSpawn();
+
+    player = new Player(playerPosition);  // TODO: move to config?
+    player->init(engine2D);
+    sceneManager->getCurrentScene()->setPlayer(player);    
 }
 
 Vector2 PlayState::getCameraTarget() const {

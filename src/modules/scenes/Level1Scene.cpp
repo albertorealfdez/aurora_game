@@ -1,7 +1,6 @@
 #include "Level1Scene.h"
 
-Level1Scene::Level1Scene(Player* player) {
-    this->player = player;
+Level1Scene::Level1Scene() {
 }
 
 void Level1Scene::init(Engine2D* engine2D) {
@@ -17,9 +16,28 @@ void Level1Scene::init(Engine2D* engine2D) {
     }
 }
 
+void Level1Scene::setPlayer(Player* player) {
+    this->player = player;
+}
+
 Vector2 Level1Scene::getCameraTarget() const {
     return player->getCurrentPosition();
 }
+
+Vector2 Level1Scene::getPlayerSpawn() const {
+    const ObjectLayer* spawnLayer = tilemap.getSpawnLayer();
+    
+    Vector2 playerSpawn = {0,0};
+
+    for (const Object& spawn: spawnLayer->objects) {
+        if (spawn.type == "player") {
+            playerSpawn = { spawn.position.x, spawn.position.y };
+        }
+    }
+
+    return playerSpawn;
+}
+
 
 void Level1Scene::handleInput(InputManager& inputManager) {
     player->handleInput(inputManager);
