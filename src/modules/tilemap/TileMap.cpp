@@ -94,6 +94,37 @@ void TileMap::processLayers(XMLElement* mapNode) {
     }
 }
 
+void TileMap::processSpawns(XMLElement* mapNode) {
+    XMLElement* layerNode;
+
+    for (
+        layerNode = mapNode->FirstChildElement("objectgroup");
+        layerNode;
+        layerNode = layerNode->NextSiblingElement("objectgroup")
+    ) {
+        ObjectLayer layer;
+        XMLElement* objectNode;
+
+        for (
+            objectNode = layerNode->FirstChildElement("object");
+            objectNode;
+            objectNode = objectNode->NextSiblingElement("object")
+        ) {
+            Object object; 
+            object.name = string(objectNode->Attribute("name"));
+            object.type = string(objectNode->Attribute("type"));
+            
+            Vector2 objectPos;
+            objectNode->QueryFloatAttribute("x", &objectPos.x);
+            objectNode->QueryFloatAttribute("y", &objectPos.y);
+            object.position = objectPos;
+
+            layer.objects.push_back(object);
+        }
+    spwanLayers.push_back(layer);
+    }
+}
+
 bool TileMap::isCollision(Vector2 position) {
     int tileX = position.x  / tileWidth;
     int tileY = position.y / tileHeight;
@@ -101,6 +132,15 @@ bool TileMap::isCollision(Vector2 position) {
     int collisionGID = layers[collisionIndex].tiles[tileY][tileX];
 
     return collisionGID != 0;
+}
+
+const ObjectLayer* TileMap::getSpawnLayer() const {
+    for (const ObjectLayer& layer: spwanLayers) {
+        if (layer.name == "Spawns") {
+            return &layer;
+        }
+    }
+    return nullptr;
 }
 
 

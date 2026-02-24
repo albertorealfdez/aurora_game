@@ -20,7 +20,7 @@ class Player: public Entity {
         float health;
 
     public:
-        Player();
+        Player(Vector2 initialPostion);
         
         void init(Engine2D* engine2D) override;
         MySprite& getMySprite() override;

@@ -113,4 +113,10 @@ void SFMLGraphicEngine::drawText(const MyText& myText) {
 
 void SFMLGraphicEngine::drawSprite(const MySprite& mySprite) {
     window->draw(mySprite.getSFMLSprite());
+
+    /* Color points 
+    sf::CircleShape circle(1.f);
+    circle.setFillColor(sf::Color::Yellow);
+    circle.setPosition(mySprite.getSFMLSprite().getPosition());
+    window->draw(circle);*/
 }

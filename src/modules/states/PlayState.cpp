@@ -3,7 +3,7 @@
 #include "Level1Scene.h"
 
 PlayState::PlayState(Game* game): State(game) {
-    player = new Player();
+    player = new Player({1280/2.f, 720/2.f});  // TODO: move to config?
     sceneManager = new SceneManager();
 }
 

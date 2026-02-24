@@ -1,8 +1,8 @@
 #include <cmath>
 #include "Player.h"
 
-Player::Player() {
-    position.current = {1280/2.f, 720/2.f};  // TODO: move to config?
+Player::Player(Vector2 initialPostion) {
+    position.current = initialPostion;
     position.last = position.current;
     speed = 180.f;
     mySprite = MySprite();
