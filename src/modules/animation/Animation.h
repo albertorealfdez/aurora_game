@@ -11,5 +11,5 @@ struct Animation {
     int frameHeight;
     int columns;
     bool loop = true;
-    float footOffset = 4.f;
+    float footOffset = 10.f;
 };
