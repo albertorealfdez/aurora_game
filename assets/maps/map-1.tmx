@@ -1829,8 +1829,8 @@
   </data>
  </layer>
  <objectgroup id="6" name="Spawns">
-  <object id="3" type="player" x="103" y="102" width="41" height="44"/>
-  <object id="4" type="soldier" x="536" y="344" width="45" height="46"/>
-  <object id="5" type="soldier" x="298" y="487" width="33" height="46"/>
+  <object id="3" name="Player" type="player" x="103" y="102" width="41" height="44"/>
+  <object id="4" name="Soldier1" type="soldier" x="536" y="344" width="45" height="46"/>
+  <object id="5" name="Soldier2" type="soldier" x="298" y="487" width="33" height="46"/>
  </objectgroup>
 </map>

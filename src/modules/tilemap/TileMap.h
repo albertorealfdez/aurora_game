@@ -1,3 +1,6 @@
+#ifndef TILEMAP_H
+#define TILEMAP_H
+
 #include <vector>
 #include <string>
 #include "tinyxml2.h"
@@ -29,3 +32,5 @@ class TileMap {
         const ObjectLayer* getSpawnLayer() const;
         void render(Engine2D* engine2D, vector<int> zIndexes);
 };
+
+#endif /* TILEMAP_H */

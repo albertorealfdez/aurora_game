@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Soldier.h"
 #include "TileMap.h"
+#include "ObjectLayer.h"
 
 class Level1Scene: public Scene{
     private:

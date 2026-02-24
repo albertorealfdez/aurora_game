@@ -1,3 +1,6 @@
+#ifndef TILELAYER_H
+#define TILELAYER_H
+
 #include <string>
 #include <vector>
 #include "Tileset.h"
@@ -16,3 +19,5 @@ class TileLayer {
 
         void render(Engine2D* engine2D, const vector<Tileset>& tilesets);
 };
+
+#endif /* TILELAYER_H */

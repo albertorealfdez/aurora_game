@@ -2,15 +2,18 @@
 
 Level1Scene::Level1Scene(Player* player) {
     this->player = player;
-
-    enemies.push_back(new Soldier({1280/2.f + 100.f, 720/2.f}));
 }
 
 void Level1Scene::init(Engine2D* engine2D) {
     tilemap.loadFromFile("assets/maps/map-1.tmx"); // TODO: move to config
 
-    for (Unit* unit: enemies) {
-        unit->init(engine2D);
+    const ObjectLayer* spawnLayer = tilemap.getSpawnLayer();
+    for (const Object& spawn: spawnLayer->objects) {
+        if (spawn.type == "soldier") {
+            Soldier* soldier = new Soldier({spawn.position.x, spawn.position.y});
+            soldier->init(engine2D);
+            enemies.push_back(soldier);    
+        }
     }
 }
 

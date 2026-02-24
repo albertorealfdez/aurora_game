@@ -1,3 +1,6 @@
+#ifndef OBJECTLAYER_H
+#define OBJECTLAYER_H
+
 #include <string>
 #include <vector>
 #include "Vector2.h"
@@ -15,4 +18,4 @@ struct ObjectLayer {
     vector<Object> objects;
 };
 
-
+#endif /* OBJECTLAYER_H */

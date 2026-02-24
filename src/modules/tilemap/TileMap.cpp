@@ -19,6 +19,7 @@ bool TileMap::loadFromFile(const string& path) {
 
             processTilesets(mapNode);
             processLayers(mapNode);
+            processSpawns(mapNode);
         } else {
             loadSuccess = false;
         }
@@ -105,6 +106,7 @@ void TileMap::processSpawns(XMLElement* mapNode) {
         ObjectLayer layer;
         XMLElement* objectNode;
 
+        layer.name = string(layerNode->Attribute("name"));
         for (
             objectNode = layerNode->FirstChildElement("object");
             objectNode;
@@ -121,7 +123,7 @@ void TileMap::processSpawns(XMLElement* mapNode) {
 
             layer.objects.push_back(object);
         }
-    spwanLayers.push_back(layer);
+        spwanLayers.push_back(layer);
     }
 }
 
