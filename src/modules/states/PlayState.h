@@ -12,7 +12,7 @@ class PlayState: public State {
 
     public:
         PlayState(Game* game);
-        ~PlayState() override = default;
+        ~PlayState() override;
 
         void init(Engine2D* engine2D);
         virtual Vector2 getCameraTarget() const override;
